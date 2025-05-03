@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>com.cybernostics</groupId>
+        <artifactId>jsp2thymeleaf-service</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>jsp2thymeleaf-service-api</artifactId>
+    <packaging>jar</packaging>
+    <name>JSP2Thymeleaf Service API</name>
+    <description>API definitions for the JSP to Thymeleaf conversion service</description>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+    </dependencies>
+</project>

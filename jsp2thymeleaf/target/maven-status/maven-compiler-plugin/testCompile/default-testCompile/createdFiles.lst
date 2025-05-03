@@ -1,0 +1,11 @@
+com\cybernostics\jsp2thymeleaf\JSP2ThymeleafErrorCaseTest$ExceptionMessageMatcher.class
+com\cybernostics\jsp2thymeleaf\plugins\converters\stub\StubConverterRegistration.class
+com\cybernostics\jsp2thymeleaf\TokenisedFileTest.class
+com\cybernostics\jsp2thymeleaf\util\JSPIncludeSorterTest.class
+com\cybernostics\jsp2thymeleaf\DomBlockCleanerTest.class
+com\cybernostics\jsp2thymeleaf\ExpressionConverterTest.class
+com\cybernostics\jsp2thymeleaf\plugins\JavaConverterRegistrationTest.class
+com\cybernostics\jsp2thymeleaf\DomBlockCleanerTest$1.class
+com\cybernostics\jsp2thymeleaf\JSP2ThymeleafErrorCaseTest.class
+com\cybernostics\jsp2thymeleaf\JSP2ThymeleafConfigurationTest.class
+com\cybernostics\jsp2thymeleaf\JSP2ThymeleafHappyCaseTest.class

@@ -1,25 +1,164 @@
 
-#Jsp2Thymeleaf - an extensible JSP to Thmeleaf converter
+# JSP2Thymeleaf - An Extensible JSP to Thymeleaf Converter
 
-This project is intended to automate over 95% of jsp to thymeleaf conversion
+## Project Overview
 
-It features:
+JSP2Thymeleaf is an advanced toolkit designed to automate the conversion of JSP (JavaServer Pages) applications to Thymeleaf templates. It aims to achieve a 95% automation rate in the conversion process, making migration from JSP to Thymeleaf significantly easier and more manageable.
 
- i) A great JSP parser thanks to the excellent jsp2jspx project which I uncovered on
- an archeological SourceForge dig and resurrected from Subversion.
+### Key Features
 
- ii) A converter framework allowing you to add converters for your own 
- tag libraries in java, groovy or python.
+- Automated conversion of JSP files to Thymeleaf templates
+- Support for incremental migration (page-by-page or fragment-by-fragment)
+- Extensible framework for custom taglib converters
+- Maven plugin for automated conversion
+- Coexistence support for JSP and Thymeleaf during migration
 
- iii) A configurable maven plugin to automate the conversion of pages either
- entirely or more sensibly, page by page or fragment by fragment. Used in
- conjunction with the com.cybernostics:spring-thymeleaf-jsp library (which allows
- jsp pages to work alongside thymeleaf, even including thymeleaf fragments), you can
- run and test your project at any stage in the conversion.
+## Architecture
 
-#Running it
+The project consists of several interconnected modules that work together to provide a complete conversion solution:
 
-  i) From the command line:
+### Core Modules
+
+1. **jsp-parser**: 
+   - Handles lexical analysis and parsing of JSP files
+   - Creates Abstract Syntax Tree (AST) for JSP documents
+   - Key components: `JSPLexer`, `JSPParser`, `AntlrJSPListener`
+
+2. **jsp2thymeleaf-api**:
+   - Core conversion interfaces and utilities 
+   - Defines converter APIs and extension points
+   - Manages common namespaces and conversions
+
+3. **jsp2thymeleaf**:
+   - Main conversion engine
+   - Transforms JSP elements to Thymeleaf equivalents
+   - Handles expression conversion and template generation
+
+4. **spring-thymeleaf-jsp**:
+   - Enables JSP and Thymeleaf coexistence
+   - Provides compatibility layer during migration
+   - Allows including Thymeleaf fragments in JSP pages
+
+### Extension Modules
+
+5. **jsp2thymeleaf-converters-spring**:
+   - Spring-specific tag converters
+   - Handles Spring form tags and bindings
+
+6. **jsp2thymeleaf-tldgen**:
+   - Generates converter templates for custom taglibs
+   - Supports creation of new tag converters
+
+7. **jsp2tl-maven-plugin**:
+   - Maven integration for automated conversion
+   - Configurable conversion process
+
+## Module Breakdown
+
+### jsp-parser
+- **Purpose**: Parse JSP files into manageable AST
+- **Key Classes**: 
+  - `JSPLexer`: Tokenizes JSP input
+  - `JSPParser`: Creates parse tree
+  - `JSPParserBaseListener`: Base class for AST traversal
+- **Dependencies**: ANTLR4 runtime
+
+### jsp2thymeleaf
+- **Purpose**: Core conversion engine
+- **Key Classes**:
+  - `JSP2Thymeleaf`: Main entry point
+  - `JSP2ThymeleafTransformerListener`: Converts JSP nodes to Thymeleaf
+  - `JSP2ThymeleafFileConverter`: Handles file-level conversion
+- **Dependencies**: jsp-parser, jsp2thymeleaf-api
+
+## Workflows
+
+### JSP Parsing Process
+1. Input JSP file is tokenized by `JSPLexer`
+2. `JSPParser` creates parse tree
+3. `JSP2ThymeleafTransformerListener` walks the tree
+4. AST nodes are converted to Thymeleaf elements
+
+### Conversion Process
+1. Configuration is loaded (`JSP2ThymeleafConfiguration`)
+2. Source files are identified and tokenized
+3. Each file is parsed and transformed
+4. Converters are applied based on tag type
+5. Output is written as Thymeleaf template
+
+### Extension Mechanism
+1. Implement `ConverterRegistration` interface
+2. Create custom tag converters
+3. Register converters via service loader
+4. Package as JAR with service descriptor
+
+## Maven Project Structure
+
+```xml
+<modules>
+    <module>jsp-parser</module>
+    <module>jsp2thymeleaf-api</module>
+    <module>jsp2thymeleaf</module>
+    <module>jsp2thymeleaf-converters-spring</module>
+    <module>jsp2thymeleaf-tldgen</module>
+    <module>jsp2tl-maven-plugin</module>
+    <module>spring-thymeleaf-jsp</module>
+</modules>
+```
+
+## Extension Mechanisms
+
+### Custom Taglib Converters
+1. Use jsp2thymeleaf-tldgen to generate converter template
+2. Implement `TagConverterSource` for tag handling
+3. Define conversion rules in converter class
+4. Register via service loader mechanism
+
+## Design Patterns Used
+
+1. **Visitor Pattern**: Used in AST traversal
+2. **Builder Pattern**: Configuration and converter building
+3. **Strategy Pattern**: Converter implementations
+4. **Factory Pattern**: Creating converter instances
+5. **Observer Pattern**: Processing AST events
+
+## Testing Approach
+
+- Unit tests for individual converters
+- Integration tests for complete conversions
+- Sample project for validation
+- Automated testing via Maven
+
+## Implementation Challenges
+
+1. **Complex JSP Features**:
+   - Nested tags handling
+   - Expression language conversion
+   - Custom tag libraries
+
+2. **Edge Cases**:
+   - Scriptlet conversion
+   - Complex EL expressions
+   - Custom tag attributes
+
+## Project Completeness
+
+### Well-Supported Features
+- Basic JSP tag conversion
+- JSTL core tags
+- Spring form tags
+- Simple expressions
+- Fragment inclusion
+
+### Areas Needing Work
+- Complex scriptlets
+- Advanced custom tags
+- Dynamic includes
+- Complex EL expressions
+
+## Usage
+
+### Command Line
  java -jar Jsp2Thymeleaf [src_files|*.jsp] [destpath|.] --taglibs=[pathlist] --urimap=[path]
  
  where:

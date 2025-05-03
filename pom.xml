@@ -6,7 +6,6 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>jsp-thymeleaf-toolkit</name>
-
   <modules>
     <module>jsp2thymeleaf</module>
     <module>jsp2thymeleaf-api</module>
@@ -17,7 +16,7 @@
     <module>jsp-parser</module>
     <module>jsp-thmeleaf-parent</module>
     <module>spring-thymeleaf-jsp</module>
-
+    <module>jsp2thymeleaf-service</module>
   </modules>
 
 </project>

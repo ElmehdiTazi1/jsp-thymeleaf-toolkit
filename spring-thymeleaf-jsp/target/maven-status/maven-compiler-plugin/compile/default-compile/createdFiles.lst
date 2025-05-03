@@ -1,0 +1,17 @@
+com\cybernostics\spring\thymeleaf\jsp\tag\InsertThymeleaFragmentfTag.class
+com\cybernostics\spring\thymeleaf\jsp\view\DefaultTemplateExistenceChecker.class
+com\cybernostics\spring\thymeleaf\jsp\compatability\ChooseChildTagProcessor.class
+com\cybernostics\spring\thymeleaf\jsp\compatability\SpringStandardDialectWithJSPBehaviours$1.class
+com\cybernostics\spring\thymeleaf\jsp\config\JspThymeleafInteropAutoConfiguration$PageScopeController.class
+com\cybernostics\spring\thymeleaf\jsp\compatability\ChooseChildTagProcessor$ChooseChildExecutionState.class
+com\cybernostics\spring\thymeleaf\jsp\compatability\ChooseOption$Option.class
+com\cybernostics\spring\thymeleaf\jsp\compatability\ChooseOption.class
+com\cybernostics\spring\thymeleaf\jsp\compatability\WhenProcessor.class
+com\cybernostics\spring\thymeleaf\jsp\config\JspThymeleafInteropAutoConfiguration.class
+com\cybernostics\spring\thymeleaf\jsp\compatability\SpringStandardDialectWithJSPBehaviours.class
+com\cybernostics\spring\thymeleaf\jsp\config\SpringTemplateEngineAutoConfiguration.class
+com\cybernostics\spring\thymeleaf\jsp\config\ComposableFunctionWebMvcConfigurerAdapter.class
+com\cybernostics\spring\thymeleaf\jsp\compatability\OtherwiseProcessor.class
+com\cybernostics\spring\thymeleaf\jsp\view\TemplateExistenceChecker.class
+com\cybernostics\spring\thymeleaf\jsp\compatability\PageMap.class
+com\cybernostics\spring\thymeleaf\jsp\view\ThymeleafJSPViewResolver.class

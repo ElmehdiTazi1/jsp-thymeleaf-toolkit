@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.cybernostics.jsp2thymeleaf.ExpressionConverterTest
+-------------------------------------------------------------------------------
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s -- in com.cybernostics.jsp2thymeleaf.ExpressionConverterTest

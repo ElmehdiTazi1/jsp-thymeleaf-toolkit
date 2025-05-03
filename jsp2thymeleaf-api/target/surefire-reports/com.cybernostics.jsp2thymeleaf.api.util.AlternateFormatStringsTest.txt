@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.cybernostics.jsp2thymeleaf.api.util.AlternateFormatStringsTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s -- in com.cybernostics.jsp2thymeleaf.api.util.AlternateFormatStringsTest

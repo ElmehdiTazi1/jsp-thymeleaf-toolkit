@@ -1,0 +1,1295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.545" tests="12" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes;C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\classes;C:\Users\elmehdi.tazi\.m2\repository\org\antlr\antlr4-runtime\4.0\antlr4-runtime-4.0.jar;C:\Users\elmehdi.tazi\.m2\repository\org\abego\treelayout\org.abego.treelayout.core\1.0.1\org.abego.treelayout.core-1.0.1.jar;C:\Users\elmehdi.tazi\.m2\repository\org\hamcrest\hamcrest-all\1.3\hamcrest-all-1.3.jar;C:\Users\elmehdi.tazi\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\elmehdi.tazi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\elmehdi.tazi\.m2\repository\commons-io\commons-io\2.5\commons-io-2.5.jar;C:\Users\elmehdi.tazi\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.0.4\kotlin-stdlib-1.0.4.jar;C:\Users\elmehdi.tazi\.m2\repository\org\jetbrains\kotlin\kotlin-runtime\1.0.4\kotlin-runtime-1.0.4.jar;"/>
+    <property name="java.vm.vendor" value="OpenLogic"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://openlogic.com/"/>
+    <property name="user.timezone" value="Africa/Casablanca"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="MA"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\openlogic-openjdk-21.0.6+7-windows-x64\bin"/>
+    <property name="sun.java.command" value="C:\Users\elmehdi.tazi\AppData\Local\Temp\surefire5897439119274685777\surefirebooter-20250503203417460_3.jar C:\Users\elmehdi.tazi\AppData\Local\Temp\surefire5897439119274685777 2025-05-03T20-34-17_189-jvmRun1 surefire-20250503203417460_1tmp surefire_0-20250503203417460_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes;C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\classes;C:\Users\elmehdi.tazi\.m2\repository\org\antlr\antlr4-runtime\4.0\antlr4-runtime-4.0.jar;C:\Users\elmehdi.tazi\.m2\repository\org\abego\treelayout\org.abego.treelayout.core\1.0.1\org.abego.treelayout.core-1.0.1.jar;C:\Users\elmehdi.tazi\.m2\repository\org\hamcrest\hamcrest-all\1.3\hamcrest-all-1.3.jar;C:\Users\elmehdi.tazi\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\elmehdi.tazi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\elmehdi.tazi\.m2\repository\commons-io\commons-io\2.5\commons-io-2.5.jar;C:\Users\elmehdi.tazi\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.0.4\kotlin-stdlib-1.0.4.jar;C:\Users\elmehdi.tazi\.m2\repository\org\jetbrains\kotlin\kotlin-runtime\1.0.4\kotlin-runtime-1.0.4.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\elmehdi.tazi"/>
+    <property name="user.language" value="fr"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-01-21"/>
+    <property name="java.home" value="C:\Program Files\openlogic-openjdk-21.0.6+7-windows-x64"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\elmehdi.tazi\AppData\Local\Temp\surefire5897439119274685777\surefirebooter-20250503203417460_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.6+7-adhoc.Administrator.jdk21u"/>
+    <property name="user.name" value="elmehdi.tazi"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="OpenLogic-OpenJDK"/>
+    <property name="localRepository" value="C:\Users\elmehdi.tazi\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://techsupport.roguewave.com/"/>
+    <property name="java.io.tmpdir" value="C:\Users\ELMEHD~1.TAZ\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.6"/>
+    <property name="user.dir" value="C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\openlogic-openjdk-21.0.6+7-windows-x64\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\openlogic-openjdk-21.0.6+7-windows-x64\bin;C:\Python313\Scripts\;C:\Python313\;C:\Program Files\apache-maven-3.9.9\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\WindowsPowerShell\Scripts;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Users\elmehdi.tazi\AppData\Local\Microsoft\WindowsApps;C:\Program Files\openlogic-openjdk-21.0.6+7-windows-x64\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.4\bin;;C:\Users\elmehdi.tazi\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\elmehdi.tazi\AppData\Roaming\npm;C:\Users\elmehdi.tazi\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\elmehdi.tazi\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.3.5\bin;;c:\Users\elmehdi.tazi\AppData\Roaming\Code - Insiders\User\globalStorage\github.copilot-chat\debugCommand;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="OpenLogic"/>
+    <property name="java.vm.version" value="21.0.6+7-adhoc.Administrator.jdk21u"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="shouldParse[0000_unknown_taglib.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.054">
+    <system-out><![CDATA[(1,0) DIRECTIVE_BEGIN -> <%@
+(1,3) TAG_IDENTIFIER -> taglib
+(1,10) TAG_IDENTIFIER -> uri
+(1,13) EQUALS -> =
+(1,14) QUOTE -> "
+(1,15) ATTVAL_ATTRIBUTE -> just doesn't exist
+(1,33) QUOTE -> "
+(1,35) TAG_IDENTIFIER -> prefix
+(1,41) EQUALS -> =
+(1,42) QUOTE -> "
+(1,43) ATTVAL_ATTRIBUTE -> c
+(1,44) QUOTE -> "
+(1,46) DIRECTIVE_END -> %>
+(1,48) WHITESPACES -> 
+
+(2,0) TAG_BEGIN -> <
+(2,1) TAG_IDENTIFIER -> c:set
+(2,7) TAG_IDENTIFIER -> var
+(2,10) EQUALS -> =
+(2,11) QUOTE -> "
+(2,12) ATTVAL_ATTRIBUTE -> salary
+(2,18) QUOTE -> "
+(2,20) TAG_IDENTIFIER -> scope
+(2,25) EQUALS -> =
+(2,26) QUOTE -> "
+(2,27) ATTVAL_ATTRIBUTE -> session
+(2,34) QUOTE -> "
+(2,36) TAG_IDENTIFIER -> value
+(2,41) EQUALS -> =
+(2,42) QUOTE -> "
+(2,43) EL_EXPR -> ${2000*2}
+(2,52) QUOTE -> "
+(2,53) TAG_SLASH_END -> />
+(2,55) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[000_footer.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.018">
+    <system-out><![CDATA[(1,0) TAG_BEGIN -> <
+(1,1) TAG_IDENTIFIER -> footer
+(1,7) TAG_END -> >
+(1,8) JSP_STATIC_CONTENT_CHARS -> 
+    This is an included footer with a JSP tag to give us something to convert.
+(2,78) TAG_BEGIN -> <
+(2,79) TAG_IDENTIFIER -> br
+(2,81) TAG_SLASH_END -> />
+(2,83) JSP_STATIC_CONTENT_CHARS_MIXED -> 
+    Here it is: 
+(3,16) EL_EXPR -> ${message}
+(3,26) JSP_STATIC_CONTENT_CHARS -> .
+    
+(4,4) TAG_BEGIN -> <
+(4,5) TAG_IDENTIFIER -> p
+(4,6) TAG_END -> >
+(4,7) JSP_STATIC_CONTENT_CHARS -> &copy; Company 2016
+(4,26) CLOSE_TAG_BEGIN -> </
+(4,28) TAG_IDENTIFIER -> p
+(4,29) TAG_END -> >
+(4,30) WHITESPACES -> 
+
+(5,0) CLOSE_TAG_BEGIN -> </
+(5,2) TAG_IDENTIFIER -> footer
+(5,8) TAG_END -> >
+(5,9) WHITESPACES -> 
+
+(6,11) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[000_welcome.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.201">
+    <system-out><![CDATA[(1,0) DTD -> <!DOCTYPE
+(1,10) DTD_IDENTIFIER -> html
+(1,14) TAG_END -> >
+(1,15) WHITESPACES -> 
+
+(2,0) DIRECTIVE_BEGIN -> <%@
+(2,4) TAG_IDENTIFIER -> taglib
+(2,11) TAG_IDENTIFIER -> prefix
+(2,17) EQUALS -> =
+(2,18) QUOTE -> "
+(2,19) ATTVAL_ATTRIBUTE -> spring
+(2,25) QUOTE -> "
+(2,27) TAG_IDENTIFIER -> uri
+(2,30) EQUALS -> =
+(2,31) QUOTE -> "
+(2,32) ATTVAL_ATTRIBUTE -> http://www.springframework.org/tags
+(2,67) QUOTE -> "
+(2,68) DIRECTIVE_END -> %>
+(2,70) WHITESPACES -> 
+
+(3,0) DIRECTIVE_BEGIN -> <%@
+(3,4) TAG_IDENTIFIER -> taglib
+(3,11) TAG_IDENTIFIER -> prefix
+(3,17) EQUALS -> =
+(3,18) QUOTE -> "
+(3,19) ATTVAL_ATTRIBUTE -> c
+(3,20) QUOTE -> "
+(3,22) TAG_IDENTIFIER -> uri
+(3,25) EQUALS -> =
+(3,26) QUOTE -> "
+(3,27) ATTVAL_ATTRIBUTE -> http://java.sun.com/jsp/jstl/core
+(3,60) QUOTE -> "
+(3,61) DIRECTIVE_END -> %>
+(3,63) WHITESPACES -> 
+
+(4,0) TAG_BEGIN -> <
+(4,1) TAG_IDENTIFIER -> html
+(4,6) TAG_IDENTIFIER -> lang
+(4,10) EQUALS -> =
+(4,11) QUOTE -> "
+(4,12) ATTVAL_ATTRIBUTE -> en
+(4,14) QUOTE -> "
+(4,15) TAG_END -> >
+(4,16) WHITESPACES -> 
+    
+(5,4) TAG_BEGIN -> <
+(5,5) TAG_IDENTIFIER -> head
+(5,9) TAG_END -> >
+(5,10) WHITESPACES -> 
+        
+(6,8) TAG_BEGIN -> <
+(6,9) TAG_IDENTIFIER -> meta
+(6,14) TAG_IDENTIFIER -> charset
+(6,21) EQUALS -> =
+(6,22) QUOTE -> "
+(6,23) ATTVAL_ATTRIBUTE -> utf-8
+(6,28) QUOTE -> "
+(6,29) TAG_SLASH_END -> />
+(6,31) WHITESPACES -> 
+        
+(7,8) TAG_BEGIN -> <
+(7,9) TAG_IDENTIFIER -> meta
+(7,14) TAG_IDENTIFIER -> http-equiv
+(7,24) EQUALS -> =
+(7,25) QUOTE -> "
+(7,26) ATTVAL_ATTRIBUTE -> X-UA-Compatible
+(7,41) QUOTE -> "
+(7,43) TAG_IDENTIFIER -> content
+(7,50) EQUALS -> =
+(7,51) QUOTE -> "
+(7,52) ATTVAL_ATTRIBUTE -> IE=edge
+(7,59) QUOTE -> "
+(7,60) TAG_SLASH_END -> />
+(7,62) WHITESPACES -> 
+        
+(8,8) TAG_BEGIN -> <
+(8,9) TAG_IDENTIFIER -> meta
+(8,14) TAG_IDENTIFIER -> name
+(8,18) EQUALS -> =
+(8,19) QUOTE -> "
+(8,20) ATTVAL_ATTRIBUTE -> viewport
+(8,28) QUOTE -> "
+(8,30) TAG_IDENTIFIER -> content
+(8,37) EQUALS -> =
+(8,38) QUOTE -> "
+(8,39) ATTVAL_ATTRIBUTE -> width=device-width, initial-scale=1, shrink-to-fit=no
+(8,92) QUOTE -> "
+(8,93) TAG_SLASH_END -> />
+(8,95) WHITESPACES -> 
+        
+(9,8) JSP_COMMENT_START -> <!--
+(9,12) JSP_COMMENT_TEXT -> The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+(9,116) JSP_COMMENT_END -> -->
+(9,119) WHITESPACES ->  
+        
+(10,8) TAG_BEGIN -> <
+(10,9) TAG_IDENTIFIER -> meta
+(10,14) TAG_IDENTIFIER -> name
+(10,18) EQUALS -> =
+(10,19) QUOTE -> "
+(10,20) ATTVAL_ATTRIBUTE -> description
+(10,31) QUOTE -> "
+(10,33) TAG_IDENTIFIER -> content
+(10,40) EQUALS -> =
+(10,41) QUOTE -> "
+(10,42) QUOTE -> "
+(10,43) TAG_SLASH_END -> />
+(10,45) WHITESPACES -> 
+        
+(11,8) TAG_BEGIN -> <
+(11,9) TAG_IDENTIFIER -> meta
+(11,14) TAG_IDENTIFIER -> name
+(11,18) EQUALS -> =
+(11,19) QUOTE -> "
+(11,20) ATTVAL_ATTRIBUTE -> author
+(11,26) QUOTE -> "
+(11,28) TAG_IDENTIFIER -> content
+(11,35) EQUALS -> =
+(11,36) QUOTE -> "
+(11,37) QUOTE -> "
+(11,38) TAG_SLASH_END -> />
+(11,40) WHITESPACES -> 
+        
+(12,8) TAG_BEGIN -> <
+(12,9) TAG_IDENTIFIER -> link
+(12,14) TAG_IDENTIFIER -> rel
+(12,17) EQUALS -> =
+(12,18) QUOTE -> "
+(12,19) ATTVAL_ATTRIBUTE -> icon
+(12,23) QUOTE -> "
+(12,25) TAG_IDENTIFIER -> href
+(12,29) EQUALS -> =
+(12,30) QUOTE -> "
+(12,31) ATTVAL_ATTRIBUTE -> favicon.ico
+(12,42) QUOTE -> "
+(12,43) TAG_SLASH_END -> />
+(12,45) WHITESPACES -> 
+
+        
+(14,8) TAG_BEGIN -> <
+(14,9) TAG_IDENTIFIER -> title
+(14,14) TAG_END -> >
+(14,15) JSP_STATIC_CONTENT_CHARS -> JSP2Thymeleaf Migration Sample Project
+(14,53) CLOSE_TAG_BEGIN -> </
+(14,55) TAG_IDENTIFIER -> title
+(14,60) TAG_END -> >
+(14,61) WHITESPACES -> 
+
+        
+(16,8) JSP_COMMENT_START -> <!--
+(16,12) JSP_COMMENT_TEXT ->  Bootstrap core CSS 
+(16,32) JSP_COMMENT_END -> -->
+(16,35) WHITESPACES -> 
+        
+(17,8) TAG_BEGIN -> <
+(17,9) TAG_IDENTIFIER -> link
+(17,14) TAG_IDENTIFIER -> href
+(17,18) EQUALS -> =
+(17,19) QUOTE -> "
+(17,20) ATTVAL_ATTRIBUTE -> /webjars/bootstrap/3.3.7/css/bootstrap.css
+(17,62) QUOTE -> "
+(17,64) TAG_IDENTIFIER -> rel
+(17,67) EQUALS -> =
+(17,68) QUOTE -> "
+(17,69) ATTVAL_ATTRIBUTE -> stylesheet
+(17,79) QUOTE -> "
+(17,80) TAG_SLASH_END -> />
+(17,82) WHITESPACES -> 
+
+        
+(19,8) JSP_COMMENT_START -> <!--
+(19,12) JSP_COMMENT_TEXT ->  Custom styles for this template 
+(19,45) JSP_COMMENT_END -> -->
+(19,48) WHITESPACES -> 
+        
+(20,8) TAG_BEGIN -> <
+(20,9) TAG_IDENTIFIER -> link
+(20,14) TAG_IDENTIFIER -> href
+(20,18) EQUALS -> =
+(20,19) QUOTE -> "
+(20,20) ATTVAL_ATTRIBUTE -> starter-template.css
+(20,40) QUOTE -> "
+(20,42) TAG_IDENTIFIER -> rel
+(20,45) EQUALS -> =
+(20,46) QUOTE -> "
+(20,47) ATTVAL_ATTRIBUTE -> stylesheet
+(20,57) QUOTE -> "
+(20,58) TAG_SLASH_END -> />
+(20,60) WHITESPACES -> 
+    
+(21,4) CLOSE_TAG_BEGIN -> </
+(21,6) TAG_IDENTIFIER -> head
+(21,10) TAG_END -> >
+(21,11) WHITESPACES -> 
+
+    
+(23,4) TAG_BEGIN -> <
+(23,5) TAG_IDENTIFIER -> body
+(23,9) TAG_END -> >
+(23,10) WHITESPACES -> 
+        
+(24,8) DIRECTIVE_BEGIN -> <%@
+(24,11) TAG_IDENTIFIER -> include
+(24,19) TAG_IDENTIFIER -> file
+(24,23) EQUALS -> =
+(24,24) QUOTE -> "
+(24,25) ATTVAL_ATTRIBUTE -> includes/header.jsp
+(24,44) QUOTE -> "
+(24,46) DIRECTIVE_END -> %>
+(24,48) WHITESPACES -> 
+
+        
+(26,8) TAG_BEGIN -> <
+(26,9) TAG_IDENTIFIER -> div
+(26,13) TAG_IDENTIFIER -> class
+(26,18) EQUALS -> =
+(26,19) QUOTE -> "
+(26,20) ATTVAL_ATTRIBUTE -> container
+(26,29) QUOTE -> "
+(26,30) TAG_END -> >
+(26,31) WHITESPACES -> 
+            
+(27,12) TAG_BEGIN -> <
+(27,13) TAG_IDENTIFIER -> h2
+(27,15) TAG_END -> >
+(27,16) JSP_STATIC_CONTENT_CHARS -> Common JSTL Tags
+(27,32) CLOSE_TAG_BEGIN -> </
+(27,34) TAG_IDENTIFIER -> h2
+(27,36) TAG_END -> >
+(27,37) WHITESPACES -> 
+            
+(28,12) DIRECTIVE_BEGIN -> <%@
+(28,15) TAG_IDENTIFIER -> include
+(28,23) TAG_IDENTIFIER -> file
+(28,27) EQUALS -> =
+(28,28) QUOTE -> "
+(28,29) ATTVAL_ATTRIBUTE -> includes/fragments/cout.jsp
+(28,56) QUOTE -> "
+(28,58) DIRECTIVE_END -> %>
+(28,60) WHITESPACES -> 
+            
+(29,12) DIRECTIVE_BEGIN -> <%@
+(29,15) TAG_IDENTIFIER -> include
+(29,23) TAG_IDENTIFIER -> file
+(29,27) EQUALS -> =
+(29,28) QUOTE -> "
+(29,29) ATTVAL_ATTRIBUTE -> includes/fragments/curl.jsp
+(29,56) QUOTE -> "
+(29,58) DIRECTIVE_END -> %>
+(29,60) WHITESPACES -> 
+            
+(30,12) DIRECTIVE_BEGIN -> <%@
+(30,15) TAG_IDENTIFIER -> include
+(30,23) TAG_IDENTIFIER -> file
+(30,27) EQUALS -> =
+(30,28) QUOTE -> "
+(30,29) ATTVAL_ATTRIBUTE -> includes/fragments/cif.jsp
+(30,55) QUOTE -> "
+(30,57) DIRECTIVE_END -> %>
+(30,59) WHITESPACES -> 
+            
+(31,12) DIRECTIVE_BEGIN -> <%@
+(31,15) TAG_IDENTIFIER -> include
+(31,23) TAG_IDENTIFIER -> file
+(31,27) EQUALS -> =
+(31,28) QUOTE -> "
+(31,29) ATTVAL_ATTRIBUTE -> includes/fragments/foreach_1.jsp
+(31,61) QUOTE -> "
+(31,63) DIRECTIVE_END -> %>
+(31,65) WHITESPACES -> 
+            
+(32,12) DIRECTIVE_BEGIN -> <%@
+(32,15) TAG_IDENTIFIER -> include
+(32,23) TAG_IDENTIFIER -> file
+(32,27) EQUALS -> =
+(32,28) QUOTE -> "
+(32,29) ATTVAL_ATTRIBUTE -> includes/fragments/foreach_2.jsp
+(32,61) QUOTE -> "
+(32,63) DIRECTIVE_END -> %>
+(32,65) WHITESPACES -> 
+            
+(33,12) DIRECTIVE_BEGIN -> <%@
+(33,15) TAG_IDENTIFIER -> include
+(33,23) TAG_IDENTIFIER -> file
+(33,27) EQUALS -> =
+(33,28) QUOTE -> "
+(33,29) ATTVAL_ATTRIBUTE -> includes/fragments/fortokens.jsp
+(33,61) QUOTE -> "
+(33,63) DIRECTIVE_END -> %>
+(33,65) WHITESPACES -> 
+            
+(34,12) DIRECTIVE_BEGIN -> <%@
+(34,15) TAG_IDENTIFIER -> include
+(34,23) TAG_IDENTIFIER -> file
+(34,27) EQUALS -> =
+(34,28) QUOTE -> "
+(34,29) ATTVAL_ATTRIBUTE -> includes/fragments/choose.jsp
+(34,58) QUOTE -> "
+(34,60) DIRECTIVE_END -> %>
+(34,62) WHITESPACES -> 
+
+        
+(36,8) CLOSE_TAG_BEGIN -> </
+(36,10) TAG_IDENTIFIER -> div
+(36,13) TAG_END -> >
+(36,14) WHITESPACES -> 
+
+        
+(38,8) TAG_BEGIN -> <
+(38,9) TAG_IDENTIFIER -> hr
+(38,11) TAG_SLASH_END -> />
+(38,13) WHITESPACES -> 
+
+        
+(40,8) DIRECTIVE_BEGIN -> <%@
+(40,11) TAG_IDENTIFIER -> include
+(40,19) TAG_IDENTIFIER -> file
+(40,23) EQUALS -> =
+(40,24) QUOTE -> "
+(40,25) ATTVAL_ATTRIBUTE -> includes/footer.jsp
+(40,44) QUOTE -> "
+(40,46) DIRECTIVE_END -> %>
+(40,48) WHITESPACES -> 
+
+        
+(42,8) JSP_COMMENT_START -> <!--
+(42,12) JSP_COMMENT_TEXT ->  /container 
+(42,24) JSP_COMMENT_END -> -->
+(42,27) WHITESPACES -> 
+
+        
+(44,8) JSP_COMMENT_START -> <!--
+(44,12) JSP_COMMENT_TEXT ->  Bootstrap core JavaScript
+        ================================================== 
+(45,59) JSP_COMMENT_END -> -->
+(45,62) WHITESPACES -> 
+        
+(46,8) JSP_COMMENT_START -> <!--
+(46,12) JSP_COMMENT_TEXT ->  Placed at the end of the document so the pages load faster 
+(46,72) JSP_COMMENT_END -> -->
+(46,75) WHITESPACES -> 
+        
+(47,8) TAG_BEGIN -> <
+(47,9) TAG_IDENTIFIER -> script
+(47,16) TAG_IDENTIFIER -> src
+(47,19) EQUALS -> =
+(47,20) QUOTE -> "
+(47,21) ATTVAL_ATTRIBUTE -> /webjars/jquery/3.1.1/jquery.min.js
+(47,56) QUOTE -> "
+(47,58) TAG_IDENTIFIER -> integrity
+(47,67) EQUALS -> =
+(47,68) QUOTE -> "
+(47,69) ATTVAL_ATTRIBUTE -> sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY
+(47,140) QUOTE -> "
+(47,142) TAG_IDENTIFIER -> crossorigin
+(47,153) EQUALS -> =
+(47,154) QUOTE -> "
+(47,155) ATTVAL_ATTRIBUTE -> anonymous
+(47,164) QUOTE -> "
+(47,165) TAG_END -> >
+(47,166) CLOSE_TAG_BEGIN -> </
+(47,168) TAG_IDENTIFIER -> script
+(47,174) TAG_END -> >
+(47,175) WHITESPACES -> 
+        
+(48,8) TAG_BEGIN -> <
+(48,9) TAG_IDENTIFIER -> script
+(48,16) TAG_IDENTIFIER -> src
+(48,19) EQUALS -> =
+(48,20) QUOTE -> "
+(48,21) ATTVAL_ATTRIBUTE -> /webjars/bootstrap/3.3.7/js/bootstrap.min.js
+(48,65) QUOTE -> "
+(48,66) TAG_END -> >
+(48,67) CLOSE_TAG_BEGIN -> </
+(48,69) TAG_IDENTIFIER -> script
+(48,75) TAG_END -> >
+(48,76) WHITESPACES -> 
+    
+(49,4) CLOSE_TAG_BEGIN -> </
+(49,6) TAG_IDENTIFIER -> body
+(49,10) TAG_END -> >
+(49,11) WHITESPACES -> 
+
+(50,0) CLOSE_TAG_BEGIN -> </
+(50,2) TAG_IDENTIFIER -> html
+(50,6) TAG_END -> >
+(50,7) WHITESPACES -> 
+
+(51,9) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[00_jsp_kitchen_sink.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.024">
+    <system-out><![CDATA[(1,0) DTD -> <!DOCTYPE
+(1,10) DTD_IDENTIFIER -> html
+(1,15) 'SYSTEM' -> SYSTEM
+(1,22) DTD_QUOTED -> "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd"
+(1,75) TAG_END -> >
+(1,76) WHITESPACES -> 
+
+(2,0) TAG_BEGIN -> <
+(2,1) TAG_IDENTIFIER -> html
+(2,5) TAG_END -> >
+(2,6) WHITESPACES -> 
+    
+(3,4) TAG_BEGIN -> <
+(3,5) TAG_IDENTIFIER -> head
+(3,9) TAG_END -> >
+(3,10) WHITESPACES -> 
+        
+(4,8) TAG_BEGIN -> <
+(4,9) TAG_IDENTIFIER -> title
+(4,14) TAG_END -> >
+(4,15) JSP_STATIC_CONTENT_CHARS_MIXED -> Fragment 
+(4,24) EL_EXPR -> ${current.title}
+(4,40) CLOSE_TAG_BEGIN -> </
+(4,42) TAG_IDENTIFIER -> title
+(4,47) TAG_END -> >
+(4,48) WHITESPACES -> 
+        
+(5,8) TAG_BEGIN -> <
+(5,9) TAG_IDENTIFIER -> style
+(5,14) TAG_END -> >
+(5,15) JSP_STATIC_CONTENT_CHARS -> 
+            .text{
+                display:
+(7,24) TAG_BEGIN -> <
+(7,25) TAG_IDENTIFIER -> c:out
+(7,31) TAG_IDENTIFIER -> value
+(7,36) EQUALS -> =
+(7,37) QUOTE -> "
+(7,38) ATTVAL_ATTRIBUTE -> normal
+(7,44) QUOTE -> "
+(7,45) TAG_SLASH_END -> />
+(7,47) JSP_STATIC_CONTENT_CHARS_MIXED -> ;
+                color: 
+(8,23) EL_EXPR -> ${current.color}
+(8,39) JSP_STATIC_CONTENT_CHARS ->     
+            }
+        
+(10,8) CLOSE_TAG_BEGIN -> </
+(10,10) TAG_IDENTIFIER -> style
+(10,15) TAG_END -> >
+(10,16) WHITESPACES -> 
+    
+(11,4) CLOSE_TAG_BEGIN -> </
+(11,6) TAG_IDENTIFIER -> head
+(11,10) TAG_END -> >
+(11,11) WHITESPACES -> 
+    
+(12,4) TAG_BEGIN -> <
+(12,5) TAG_IDENTIFIER -> body
+(12,10) TAG_IDENTIFIER -> id
+(12,12) EQUALS -> =
+(12,13) QUOTE -> "
+(12,14) ATTVAL_ATTRIBUTE -> somevalue
+(12,23) QUOTE -> "
+(12,25) TAG_IDENTIFIER -> class
+(12,30) EQUALS -> =
+(12,31) QUOTE -> "
+(12,32) ATTVAL_ATTRIBUTE -> avalue
+(12,38) QUOTE -> "
+(12,40) TAG_IDENTIFIER -> data-test
+(12,49) EQUALS -> =
+(12,50) QUOTE -> "
+(12,51) EL_EXPR -> ${attExpr}
+(12,61) QUOTE -> "
+(12,63) TAG_END -> >
+(12,64) WHITESPACES -> 
+        
+(13,8) TAG_BEGIN -> <
+(13,9) TAG_IDENTIFIER -> input
+(13,15) TAG_IDENTIFIER -> disabled
+(13,24) TAG_IDENTIFIER -> value
+(13,29) EQUALS -> =
+(13,30) QUOTE -> "
+(13,31) QUOTE -> "
+(13,33) TAG_IDENTIFIER -> type
+(13,37) EQUALS -> =
+(13,38) QUOTE -> "
+(13,39) ATTVAL_ATTRIBUTE -> text
+(13,43) QUOTE -> "
+(13,44) TAG_SLASH_END -> />
+(13,46) JSP_STATIC_CONTENT_CHARS_MIXED -> 
+        This is the body
+        
+(15,8) EL_EXPR -> ${some.value}
+(15,21) JSP_STATIC_CONTENT_CHARS -> 
+        More text
+        
+(17,8) TAG_BEGIN -> <
+(17,9) TAG_IDENTIFIER -> c:out
+(17,15) TAG_IDENTIFIER -> value
+(17,20) EQUALS -> =
+(17,21) QUOTE -> "
+(17,22) ATTVAL_ATTRIBUTE -> boo with spaces
+(17,37) QUOTE -> "
+(17,38) TAG_SLASH_END -> />
+(17,40) JSP_STATIC_CONTENT_CHARS -> 
+        Yet still more text
+    
+(19,4) CLOSE_TAG_BEGIN -> </
+(19,6) TAG_IDENTIFIER -> body
+(19,10) TAG_END -> >
+(19,11) WHITESPACES -> 
+
+(20,0) CLOSE_TAG_BEGIN -> </
+(20,2) TAG_IDENTIFIER -> html
+(20,6) TAG_END -> >
+(20,7) WHITESPACES -> 
+
+(21,9) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[01_clean_html.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.02">
+    <system-out><![CDATA[(1,0) TAG_BEGIN -> <
+(1,1) TAG_IDENTIFIER -> html
+(1,5) TAG_END -> >
+(1,6) WHITESPACES -> 
+    
+(2,4) TAG_BEGIN -> <
+(2,5) TAG_IDENTIFIER -> head
+(2,9) TAG_END -> >
+(2,10) WHITESPACES -> 
+        
+(3,8) TAG_BEGIN -> <
+(3,9) TAG_IDENTIFIER -> title
+(3,14) TAG_END -> >
+(3,15) JSP_STATIC_CONTENT_CHARS -> Fragment
+(3,23) CLOSE_TAG_BEGIN -> </
+(3,25) TAG_IDENTIFIER -> title
+(3,30) TAG_END -> >
+(3,31) WHITESPACES -> 
+        
+(4,8) TAG_BEGIN -> <
+(4,9) TAG_IDENTIFIER -> style
+(4,14) TAG_END -> >
+(4,15) JSP_STATIC_CONTENT_CHARS -> 
+            .text{
+                display:normal;
+                color: blue;    
+            }
+        
+(9,8) CLOSE_TAG_BEGIN -> </
+(9,10) TAG_IDENTIFIER -> style
+(9,15) TAG_END -> >
+(9,16) WHITESPACES -> 
+    
+(10,4) CLOSE_TAG_BEGIN -> </
+(10,6) TAG_IDENTIFIER -> head
+(10,10) TAG_END -> >
+(10,11) WHITESPACES -> 
+    
+(11,4) TAG_BEGIN -> <
+(11,5) TAG_IDENTIFIER -> body
+(11,10) TAG_IDENTIFIER -> id
+(11,12) EQUALS -> =
+(11,13) QUOTE -> "
+(11,14) ATTVAL_ATTRIBUTE -> somevalue
+(11,23) QUOTE -> "
+(11,25) TAG_IDENTIFIER -> class
+(11,30) EQUALS -> =
+(11,31) QUOTE -> "
+(11,32) ATTVAL_ATTRIBUTE -> aClass
+(11,38) QUOTE -> "
+(11,40) TAG_END -> >
+(11,41) WHITESPACES -> 
+        
+(12,8) TAG_BEGIN -> <
+(12,9) TAG_IDENTIFIER -> input
+(12,15) TAG_IDENTIFIER -> disabled
+(12,24) TAG_IDENTIFIER -> value
+(12,29) EQUALS -> =
+(12,30) QUOTE -> "
+(12,31) QUOTE -> "
+(12,33) TAG_IDENTIFIER -> type
+(12,37) EQUALS -> =
+(12,38) QUOTE -> "
+(12,39) ATTVAL_ATTRIBUTE -> text
+(12,43) QUOTE -> "
+(12,44) TAG_SLASH_END -> />
+(12,46) JSP_STATIC_CONTENT_CHARS -> 
+        This is the body
+        More text
+        Yet still more text
+    
+(16,4) CLOSE_TAG_BEGIN -> </
+(16,6) TAG_IDENTIFIER -> body
+(16,10) TAG_END -> >
+(16,11) WHITESPACES -> 
+
+(17,0) CLOSE_TAG_BEGIN -> </
+(17,2) TAG_IDENTIFIER -> html
+(17,6) TAG_END -> >
+(17,7) WHITESPACES -> 
+
+(18,9) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[02_cout.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.051">
+    <system-out><![CDATA[(1,0) DIRECTIVE_BEGIN -> <%@
+(1,4) TAG_IDENTIFIER -> taglib
+(1,11) TAG_IDENTIFIER -> uri
+(1,14) EQUALS -> =
+(1,15) QUOTE -> '
+(1,16) ATTVAL_ATTRIBUTE -> http://java.sun.com/jstl/core
+(1,45) QUOTE -> '
+(1,47) TAG_IDENTIFIER -> prefix
+(1,53) EQUALS -> =
+(1,54) QUOTE -> '
+(1,55) ATTVAL_ATTRIBUTE -> c
+(1,56) QUOTE -> '
+(1,58) DIRECTIVE_END -> %>
+(1,60) WHITESPACES ->  
+
+(2,0) TAG_BEGIN -> <
+(2,1) TAG_IDENTIFIER -> div
+(2,5) TAG_BEGIN -> <
+(2,6) TAG_IDENTIFIER -> c:out
+(2,12) TAG_IDENTIFIER -> value
+(2,17) EQUALS -> =
+(2,18) QUOTE -> "
+(2,19) ATTVAL_ATTRIBUTE -> style=&quot;display:none;&quot;
+(2,50) QUOTE -> "
+(2,51) TAG_SLASH_END -> />
+(2,54) TAG_END -> >
+(2,55) JSP_STATIC_CONTENT_CHARS -> div content
+(2,66) CLOSE_TAG_BEGIN -> </
+(2,68) TAG_IDENTIFIER -> div
+(2,71) TAG_END -> >
+(2,72) WHITESPACES -> 
+
+(3,0) TAG_BEGIN -> <
+(3,1) TAG_IDENTIFIER -> c:out
+(3,7) TAG_IDENTIFIER -> value
+(3,12) EQUALS -> =
+(3,13) QUOTE -> '
+(3,14) EL_EXPR -> ${param.name}
+(3,27) QUOTE -> '
+(3,28) TAG_SLASH_END -> />
+(3,30) JSP_STATIC_CONTENT_CHARS ->  
+In body text: 
+(4,14) TAG_BEGIN -> <
+(4,15) TAG_IDENTIFIER -> c:out
+(4,21) TAG_IDENTIFIER -> value
+(4,26) EQUALS -> =
+(4,27) QUOTE -> "
+(4,28) EL_EXPR -> ${inBodyMessage}
+(4,44) QUOTE -> "
+(4,45) TAG_SLASH_END -> />
+(4,47) TAG_BEGIN -> <
+(4,48) TAG_IDENTIFIER -> br
+(4,50) TAG_SLASH_END -> />
+(4,52) JSP_STATIC_CONTENT_CHARS -> 
+In tags: 
+(5,9) TAG_BEGIN -> <
+(5,10) TAG_IDENTIFIER -> input
+(5,16) TAG_IDENTIFIER -> value
+(5,21) EQUALS -> =
+(5,22) QUOTE -> '
+(5,23) TAG_BEGIN -> <
+(5,24) TAG_IDENTIFIER -> c:out
+(5,30) TAG_IDENTIFIER -> value
+(5,35) EQUALS -> =
+(5,36) QUOTE -> "
+(5,37) EL_EXPR -> ${inAttributeMessage}
+(5,58) QUOTE -> "
+(5,59) TAG_SLASH_END -> />
+(5,61) QUOTE -> '
+(5,62) TAG_SLASH_END -> />
+(5,64) TAG_BEGIN -> <
+(5,65) TAG_IDENTIFIER -> br
+(5,67) TAG_SLASH_END -> />
+(5,69) WHITESPACES -> 
+
+(6,71) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[03_cif.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.025">
+    <system-out><![CDATA[(1,0) DIRECTIVE_BEGIN -> <%@
+(1,4) TAG_IDENTIFIER -> taglib
+(1,11) TAG_IDENTIFIER -> uri
+(1,14) EQUALS -> =
+(1,15) QUOTE -> '
+(1,16) ATTVAL_ATTRIBUTE -> http://java.sun.com/jstl/core
+(1,45) QUOTE -> '
+(1,47) TAG_IDENTIFIER -> prefix
+(1,53) EQUALS -> =
+(1,54) QUOTE -> '
+(1,55) ATTVAL_ATTRIBUTE -> c
+(1,56) QUOTE -> '
+(1,58) DIRECTIVE_END -> %>
+(1,60) WHITESPACES ->  
+
+(2,0) DIRECTIVE_BEGIN -> <%@
+(2,4) TAG_IDENTIFIER -> taglib
+(2,11) TAG_IDENTIFIER -> uri
+(2,14) EQUALS -> =
+(2,15) QUOTE -> '
+(2,16) ATTVAL_ATTRIBUTE -> http://java.sun.com/jstl/functions
+(2,50) QUOTE -> '
+(2,52) TAG_IDENTIFIER -> prefix
+(2,58) EQUALS -> =
+(2,59) QUOTE -> '
+(2,60) ATTVAL_ATTRIBUTE -> fn
+(2,62) QUOTE -> '
+(2,64) DIRECTIVE_END -> %>
+(2,66) WHITESPACES ->  
+
+(3,0) TAG_BEGIN -> <
+(3,1) TAG_IDENTIFIER -> c:if
+(3,6) TAG_IDENTIFIER -> test
+(3,10) EQUALS -> =
+(3,11) QUOTE -> '
+(3,12) EL_EXPR -> ${!param.amount}
+(3,28) QUOTE -> '
+(3,30) TAG_IDENTIFIER -> id
+(3,32) EQUALS -> =
+(3,33) QUOTE -> '
+(3,34) ATTVAL_ATTRIBUTE -> barry
+(3,39) QUOTE -> '
+(3,40) TAG_END -> >
+(3,41) JSP_STATIC_CONTENT_CHARS ->  
+    Some text here
+
+(5,0) CLOSE_TAG_BEGIN -> </
+(5,2) TAG_IDENTIFIER -> c:if
+(5,6) TAG_END -> >
+(5,7) WHITESPACES -> 
+
+(6,0) TAG_BEGIN -> <
+(6,1) TAG_IDENTIFIER -> c:if
+(6,6) TAG_IDENTIFIER -> test
+(6,10) EQUALS -> =
+(6,11) QUOTE -> "
+(6,12) EL_EXPR -> ${fn:contains(name, searchString)}
+(6,46) QUOTE -> "
+(6,47) TAG_END -> >
+(6,48) JSP_STATIC_CONTENT_CHARS -> Boo
+(6,51) CLOSE_TAG_BEGIN -> </
+(6,53) TAG_IDENTIFIER -> c:if
+(6,57) TAG_END -> >
+(6,58) WHITESPACES -> 
+
+(7,60) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[04_foreach.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.027">
+    <system-out><![CDATA[(1,0) DIRECTIVE_BEGIN -> <%@
+(1,4) TAG_IDENTIFIER -> taglib
+(1,11) TAG_IDENTIFIER -> uri
+(1,14) EQUALS -> =
+(1,15) QUOTE -> '
+(1,16) ATTVAL_ATTRIBUTE -> http://java.sun.com/jstl/core
+(1,45) QUOTE -> '
+(1,47) TAG_IDENTIFIER -> prefix
+(1,53) EQUALS -> =
+(1,54) QUOTE -> '
+(1,55) ATTVAL_ATTRIBUTE -> c
+(1,56) QUOTE -> '
+(1,58) DIRECTIVE_END -> %>
+(1,60) WHITESPACES ->  
+
+(2,0) TAG_BEGIN -> <
+(2,1) TAG_IDENTIFIER -> c:forEach
+(2,11) TAG_IDENTIFIER -> var
+(2,14) EQUALS -> =
+(2,15) QUOTE -> "
+(2,16) ATTVAL_ATTRIBUTE -> anItem
+(2,22) QUOTE -> "
+(2,24) TAG_IDENTIFIER -> items
+(2,29) EQUALS -> =
+(2,30) QUOTE -> "
+(2,31) EL_EXPR -> ${itemlist}
+(2,42) QUOTE -> "
+(2,44) TAG_IDENTIFIER -> varStatus
+(2,53) EQUALS -> =
+(2,54) QUOTE -> '
+(2,55) ATTVAL_ATTRIBUTE -> statusVar
+(2,64) QUOTE -> '
+(2,65) TAG_END -> >
+(2,66) JSP_STATIC_CONTENT_CHARS -> 
+    First Form here
+
+(4,0) CLOSE_TAG_BEGIN -> </
+(4,2) TAG_IDENTIFIER -> c:forEach
+(4,11) TAG_END -> >
+(4,12) WHITESPACES -> 
+
+(5,0) TAG_BEGIN -> <
+(5,1) TAG_IDENTIFIER -> c:forEach
+(5,11) TAG_IDENTIFIER -> var
+(5,14) EQUALS -> =
+(5,15) QUOTE -> "
+(5,16) ATTVAL_ATTRIBUTE -> anItem
+(5,22) QUOTE -> "
+(5,24) TAG_IDENTIFIER -> items
+(5,29) EQUALS -> =
+(5,30) QUOTE -> "
+(5,31) EL_EXPR -> ${itemlist}
+(5,42) QUOTE -> "
+(5,43) TAG_END -> >
+(5,44) JSP_STATIC_CONTENT_CHARS -> 
+    Second Form here
+
+(7,0) CLOSE_TAG_BEGIN -> </
+(7,2) TAG_IDENTIFIER -> c:forEach
+(7,11) TAG_END -> >
+(7,12) WHITESPACES -> 
+
+(8,0) TAG_BEGIN -> <
+(8,1) TAG_IDENTIFIER -> c:forEach
+(8,11) TAG_IDENTIFIER -> var
+(8,14) EQUALS -> =
+(8,15) QUOTE -> "
+(8,16) ATTVAL_ATTRIBUTE -> anotherItem
+(8,27) QUOTE -> "
+(8,29) TAG_IDENTIFIER -> begin
+(8,34) EQUALS -> =
+(8,35) QUOTE -> "
+(8,36) ATTVAL_ATTRIBUTE -> 1
+(8,37) QUOTE -> "
+(8,39) TAG_IDENTIFIER -> end
+(8,42) EQUALS -> =
+(8,43) QUOTE -> '
+(8,44) ATTVAL_ATTRIBUTE -> 10
+(8,46) QUOTE -> '
+(8,48) TAG_IDENTIFIER -> step
+(8,52) EQUALS -> =
+(8,53) QUOTE -> '
+(8,54) ATTVAL_ATTRIBUTE -> 2
+(8,55) QUOTE -> '
+(8,56) TAG_END -> >
+(8,57) JSP_STATIC_CONTENT_CHARS -> 
+    Third Form here
+
+(10,0) CLOSE_TAG_BEGIN -> </
+(10,2) TAG_IDENTIFIER -> c:forEach
+(10,11) TAG_END -> >
+(10,12) WHITESPACES -> 
+
+(11,0) TAG_BEGIN -> <
+(11,1) TAG_IDENTIFIER -> c:forEach
+(11,11) TAG_IDENTIFIER -> var
+(11,14) EQUALS -> =
+(11,15) QUOTE -> "
+(11,16) ATTVAL_ATTRIBUTE -> anotherItem
+(11,27) QUOTE -> "
+(11,29) TAG_IDENTIFIER -> begin
+(11,34) EQUALS -> =
+(11,35) QUOTE -> "
+(11,36) ATTVAL_ATTRIBUTE -> 1
+(11,37) QUOTE -> "
+(11,39) TAG_IDENTIFIER -> end
+(11,42) EQUALS -> =
+(11,43) QUOTE -> '
+(11,44) ATTVAL_ATTRIBUTE -> 10
+(11,46) QUOTE -> '
+(11,47) TAG_END -> >
+(11,48) JSP_STATIC_CONTENT_CHARS -> 
+    Fourth Form here
+
+(13,0) CLOSE_TAG_BEGIN -> </
+(13,2) TAG_IDENTIFIER -> c:forEach
+(13,11) TAG_END -> >
+(13,12) WHITESPACES -> 
+
+(14,0) TAG_BEGIN -> <
+(14,1) TAG_IDENTIFIER -> c:forEach
+(14,11) TAG_IDENTIFIER -> var
+(14,14) EQUALS -> =
+(14,15) QUOTE -> "
+(14,16) ATTVAL_ATTRIBUTE -> anotherItem
+(14,27) QUOTE -> "
+(14,29) TAG_IDENTIFIER -> begin
+(14,34) EQUALS -> =
+(14,35) QUOTE -> "
+(14,36) ATTVAL_ATTRIBUTE -> 1
+(14,37) QUOTE -> "
+(14,39) TAG_IDENTIFIER -> end
+(14,42) EQUALS -> =
+(14,43) QUOTE -> '
+(14,44) ATTVAL_ATTRIBUTE -> 10
+(14,46) QUOTE -> '
+(14,48) TAG_IDENTIFIER -> step
+(14,52) EQUALS -> =
+(14,53) QUOTE -> '
+(14,54) ATTVAL_ATTRIBUTE -> 2
+(14,55) QUOTE -> '
+(14,57) TAG_IDENTIFIER -> varStatus
+(14,66) EQUALS -> =
+(14,67) QUOTE -> '
+(14,68) ATTVAL_ATTRIBUTE -> statusVar
+(14,77) QUOTE -> '
+(14,78) TAG_END -> >
+(14,79) JSP_STATIC_CONTENT_CHARS -> 
+    Fifth Form here
+
+(16,0) CLOSE_TAG_BEGIN -> </
+(16,2) TAG_IDENTIFIER -> c:forEach
+(16,11) TAG_END -> >
+(16,12) WHITESPACES -> 
+    
+
+(18,20) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[05_cset.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.029">
+    <system-out><![CDATA[(1,0) DIRECTIVE_BEGIN -> <%@
+(1,4) TAG_IDENTIFIER -> taglib
+(1,11) TAG_IDENTIFIER -> uri
+(1,14) EQUALS -> =
+(1,15) QUOTE -> "
+(1,16) ATTVAL_ATTRIBUTE -> http://java.sun.com/jsp/jstl/core
+(1,49) QUOTE -> "
+(1,51) TAG_IDENTIFIER -> prefix
+(1,57) EQUALS -> =
+(1,58) QUOTE -> "
+(1,59) ATTVAL_ATTRIBUTE -> c
+(1,60) QUOTE -> "
+(1,62) DIRECTIVE_END -> %>
+(1,64) WHITESPACES -> 
+
+(2,0) TAG_BEGIN -> <
+(2,1) TAG_IDENTIFIER -> c:set
+(2,7) TAG_IDENTIFIER -> var
+(2,10) EQUALS -> =
+(2,11) QUOTE -> "
+(2,12) ATTVAL_ATTRIBUTE -> salary
+(2,18) QUOTE -> "
+(2,20) TAG_IDENTIFIER -> scope
+(2,25) EQUALS -> =
+(2,26) QUOTE -> "
+(2,27) ATTVAL_ATTRIBUTE -> session
+(2,34) QUOTE -> "
+(2,36) TAG_IDENTIFIER -> value
+(2,41) EQUALS -> =
+(2,42) QUOTE -> "
+(2,43) EL_EXPR -> ${2000*2}
+(2,52) QUOTE -> "
+(2,53) TAG_SLASH_END -> />
+(2,55) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[06_curl.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.013">
+    <system-out><![CDATA[(1,0) TAG_BEGIN -> <
+(1,1) TAG_IDENTIFIER -> h3
+(1,3) TAG_END -> >
+(1,4) JSP_STATIC_CONTENT_CHARS -> c:url
+(1,9) CLOSE_TAG_BEGIN -> </
+(1,11) TAG_IDENTIFIER -> h3
+(1,13) TAG_END -> >
+(1,14) JSP_STATIC_CONTENT_CHARS -> 
+Escaped urls adjusted with the current application context.
+(2,59) TAG_BEGIN -> <
+(2,60) TAG_IDENTIFIER -> br
+(2,62) TAG_SLASH_END -> />
+(2,64) WHITESPACES -> 
+
+(3,0) TAG_BEGIN -> <
+(3,1) TAG_IDENTIFIER -> pre
+(3,4) TAG_END -> >
+(3,5) JSP_STATIC_CONTENT_CHARS -> 
+&lt;c:url value="/resources/text.txt" var="url"/&gt;
+&lt;spring:url value="/resources/text.txt" htmlEscape="true" var="springUrl" /&gt;
+JSTL URL: \${url}&lt;br/&gt;
+
+(7,0) CLOSE_TAG_BEGIN -> </
+(7,2) TAG_IDENTIFIER -> pre
+(7,5) TAG_END -> >
+(7,6) WHITESPACES -> 
+
+(8,0) TAG_BEGIN -> <
+(8,1) TAG_IDENTIFIER -> c:url
+(8,7) TAG_IDENTIFIER -> value
+(8,12) EQUALS -> =
+(8,13) QUOTE -> "
+(8,14) ATTVAL_ATTRIBUTE -> /resources/text.txt
+(8,33) QUOTE -> "
+(8,35) TAG_IDENTIFIER -> var
+(8,38) EQUALS -> =
+(8,39) QUOTE -> "
+(8,40) ATTVAL_ATTRIBUTE -> url
+(8,43) QUOTE -> "
+(8,44) TAG_SLASH_END -> />
+(8,46) WHITESPACES -> 
+
+(9,0) TAG_BEGIN -> <
+(9,1) TAG_IDENTIFIER -> spring:url
+(9,12) TAG_IDENTIFIER -> value
+(9,17) EQUALS -> =
+(9,18) QUOTE -> "
+(9,19) ATTVAL_ATTRIBUTE -> /resources/text.txt
+(9,38) QUOTE -> "
+(9,40) TAG_IDENTIFIER -> htmlEscape
+(9,50) EQUALS -> =
+(9,51) QUOTE -> "
+(9,52) ATTVAL_ATTRIBUTE -> true
+(9,56) QUOTE -> "
+(9,58) TAG_IDENTIFIER -> var
+(9,61) EQUALS -> =
+(9,62) QUOTE -> "
+(9,63) ATTVAL_ATTRIBUTE -> springUrl
+(9,72) QUOTE -> "
+(9,74) TAG_SLASH_END -> />
+(9,76) JSP_STATIC_CONTENT_CHARS_MIXED -> 
+Spring URL: 
+(10,12) EL_EXPR -> ${springUrl}
+(10,24) JSP_STATIC_CONTENT_CHARS_MIXED ->  at 
+(10,28) EL_EXPR -> ${time}
+(10,35) TAG_BEGIN -> <
+(10,36) TAG_IDENTIFIER -> br
+(10,38) TAG_SLASH_END -> />
+(10,40) JSP_STATIC_CONTENT_CHARS_MIXED -> 
+JSTL URL: 
+(11,10) EL_EXPR -> ${url}
+(11,16) TAG_BEGIN -> <
+(11,17) TAG_IDENTIFIER -> br
+(11,19) TAG_SLASH_END -> />
+(11,21) WHITESPACES -> 
+
+(12,23) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[09_curl.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.017">
+    <system-out><![CDATA[(1,0) DIRECTIVE_BEGIN -> <%@
+(1,4) TAG_IDENTIFIER -> taglib
+(1,11) TAG_IDENTIFIER -> uri
+(1,14) EQUALS -> =
+(1,15) QUOTE -> "
+(1,16) ATTVAL_ATTRIBUTE -> http://java.sun.com/jsp/jstl/core
+(1,49) QUOTE -> "
+(1,51) TAG_IDENTIFIER -> prefix
+(1,57) EQUALS -> =
+(1,58) QUOTE -> "
+(1,59) ATTVAL_ATTRIBUTE -> c
+(1,60) QUOTE -> "
+(1,62) DIRECTIVE_END -> %>
+(1,64) WHITESPACES -> 
+
+(2,0) TAG_BEGIN -> <
+(2,1) TAG_IDENTIFIER -> c:url
+(2,7) TAG_IDENTIFIER -> var
+(2,10) EQUALS -> =
+(2,11) QUOTE -> "
+(2,12) ATTVAL_ATTRIBUTE -> someVar
+(2,19) QUOTE -> "
+(2,21) TAG_IDENTIFIER -> value
+(2,26) EQUALS -> =
+(2,27) QUOTE -> "
+(2,28) ATTVAL_ATTRIBUTE -> /root/path/here
+(2,43) QUOTE -> "
+(2,44) TAG_SLASH_END -> />
+(2,46) WHITESPACES -> 
+
+
+(4,0) TAG_BEGIN -> <
+(4,1) TAG_IDENTIFIER -> a
+(4,3) TAG_IDENTIFIER -> href
+(4,7) EQUALS -> =
+(4,8) QUOTE -> "
+(4,9) TAG_BEGIN -> <
+(4,10) TAG_IDENTIFIER -> c:url
+(4,16) TAG_IDENTIFIER -> value
+(4,21) EQUALS -> =
+(4,22) QUOTE -> "
+(4,23) ATTVAL_ATTRIBUTE -> /embedded/path
+(4,37) QUOTE -> "
+(4,38) TAG_END -> >
+(4,39) TAG_BEGIN -> <
+(4,40) TAG_IDENTIFIER -> c:param
+(4,48) TAG_IDENTIFIER -> value
+(4,53) EQUALS -> =
+(4,54) QUOTE -> "
+(4,55) ATTVAL_ATTRIBUTE -> george
+(4,61) QUOTE -> "
+(4,62) TAG_SLASH_END -> />
+(4,64) CLOSE_TAG_BEGIN -> </
+(4,66) TAG_IDENTIFIER -> c:url
+(4,71) TAG_END -> >
+(4,72) QUOTE -> "
+(4,73) TAG_END -> >
+(4,74) JSP_STATIC_CONTENT_CHARS -> Some Link
+(4,83) CLOSE_TAG_BEGIN -> </
+(4,85) TAG_IDENTIFIER -> a
+(4,86) TAG_END -> >
+(4,87) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[foreach_1.jsp]" classname="com.cybernostics.jspparser.JSPLexerHappyCaseTest" time="0.046">
+    <system-out><![CDATA[(1,0) DIRECTIVE_BEGIN -> <%@
+(1,4) TAG_IDENTIFIER -> taglib
+(1,11) TAG_IDENTIFIER -> prefix
+(1,17) EQUALS -> =
+(1,18) QUOTE -> "
+(1,19) ATTVAL_ATTRIBUTE -> fn
+(1,21) QUOTE -> "
+(1,23) TAG_IDENTIFIER -> uri
+(1,26) EQUALS -> =
+(1,27) QUOTE -> "
+(1,28) ATTVAL_ATTRIBUTE -> http://java.sun.com/jsp/jstl/functions
+(1,66) QUOTE -> "
+(1,67) DIRECTIVE_END -> %>
+(1,69) WHITESPACES -> 
+
+
+(3,0) TAG_BEGIN -> <
+(3,1) TAG_IDENTIFIER -> h3
+(3,3) TAG_END -> >
+(3,4) JSP_STATIC_CONTENT_CHARS -> foreach - Form 1 (List iterator)
+(3,36) CLOSE_TAG_BEGIN -> </
+(3,38) TAG_IDENTIFIER -> h3
+(3,40) TAG_END -> >
+(3,41) WHITESPACES -> 
+
+(4,0) TAG_BEGIN -> <
+(4,1) TAG_IDENTIFIER -> pre
+(4,4) TAG_END -> >
+(4,5) JSP_STATIC_CONTENT_CHARS -> 
+&lt;c:foreach var="item" items="\${fn:splitTokens('red,green,blue')}" varStatus="status"&gt;
+This is item \${item}. Status is \${status.index}&lt;br/&gt;
+&lt;/c:foreach&gt;
+                
+
+(9,0) CLOSE_TAG_BEGIN -> </
+(9,2) TAG_IDENTIFIER -> pre
+(9,5) TAG_END -> >
+(9,6) WHITESPACES -> 
+
+(10,0) TAG_BEGIN -> <
+(10,1) TAG_IDENTIFIER -> c:foreach
+(10,11) TAG_IDENTIFIER -> var
+(10,14) EQUALS -> =
+(10,15) QUOTE -> "
+(10,16) ATTVAL_ATTRIBUTE -> item
+(10,20) QUOTE -> "
+(10,22) TAG_IDENTIFIER -> items
+(10,27) EQUALS -> =
+(10,28) QUOTE -> "
+(10,29) EL_EXPR -> ${fn:split('red,green,blue')}
+(10,58) QUOTE -> "
+(10,60) TAG_IDENTIFIER -> varStatus
+(10,69) EQUALS -> =
+(10,70) QUOTE -> "
+(10,71) ATTVAL_ATTRIBUTE -> status
+(10,77) QUOTE -> "
+(10,78) TAG_END -> >
+(10,79) JSP_STATIC_CONTENT_CHARS_MIXED -> 
+    This is item 
+(11,17) EL_EXPR -> ${item}
+(11,24) JSP_STATIC_CONTENT_CHARS_MIXED -> . Status is 
+(11,36) EL_EXPR -> ${status.index}
+(11,51) TAG_BEGIN -> <
+(11,52) TAG_IDENTIFIER -> br
+(11,54) TAG_SLASH_END -> />
+(11,56) WHITESPACES -> 
+
+(12,0) CLOSE_TAG_BEGIN -> </
+(12,2) TAG_IDENTIFIER -> c:foreach
+(12,11) TAG_END -> >
+(12,12) WHITESPACES -> 
+
+(13,14) <<UNKNOWN>> -> <EOF>
+]]></system-out>
+  </testcase>
+</testsuite>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>com.cybernostics</groupId>
+        <artifactId>jsp2thymeleaf-service</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>jsp2thymeleaf-service-integration-tests</artifactId>
+    <packaging>jar</packaging>
+    <name>JSP2Thymeleaf Service Integration Tests</name>
+    <description>Integration tests for the JSP to Thymeleaf conversion service</description>
+      <dependencies>
+        <!-- Service Dependencies -->
+        <dependency>
+            <groupId>au.com.cybernostics</groupId>
+            <artifactId>jsp2thymeleaf-service-web</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+        <!-- Test Dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>1.17.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.1.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

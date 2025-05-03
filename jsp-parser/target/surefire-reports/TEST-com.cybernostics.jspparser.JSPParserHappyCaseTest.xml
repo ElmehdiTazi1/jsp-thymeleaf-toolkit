@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.219" tests="12" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes;C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\classes;C:\Users\elmehdi.tazi\.m2\repository\org\antlr\antlr4-runtime\4.0\antlr4-runtime-4.0.jar;C:\Users\elmehdi.tazi\.m2\repository\org\abego\treelayout\org.abego.treelayout.core\1.0.1\org.abego.treelayout.core-1.0.1.jar;C:\Users\elmehdi.tazi\.m2\repository\org\hamcrest\hamcrest-all\1.3\hamcrest-all-1.3.jar;C:\Users\elmehdi.tazi\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\elmehdi.tazi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\elmehdi.tazi\.m2\repository\commons-io\commons-io\2.5\commons-io-2.5.jar;C:\Users\elmehdi.tazi\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.0.4\kotlin-stdlib-1.0.4.jar;C:\Users\elmehdi.tazi\.m2\repository\org\jetbrains\kotlin\kotlin-runtime\1.0.4\kotlin-runtime-1.0.4.jar;"/>
+    <property name="java.vm.vendor" value="OpenLogic"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://openlogic.com/"/>
+    <property name="user.timezone" value="Africa/Casablanca"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="MA"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\openlogic-openjdk-21.0.6+7-windows-x64\bin"/>
+    <property name="sun.java.command" value="C:\Users\elmehdi.tazi\AppData\Local\Temp\surefire5897439119274685777\surefirebooter-20250503203417460_3.jar C:\Users\elmehdi.tazi\AppData\Local\Temp\surefire5897439119274685777 2025-05-03T20-34-17_189-jvmRun1 surefire-20250503203417460_1tmp surefire_0-20250503203417460_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes;C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\classes;C:\Users\elmehdi.tazi\.m2\repository\org\antlr\antlr4-runtime\4.0\antlr4-runtime-4.0.jar;C:\Users\elmehdi.tazi\.m2\repository\org\abego\treelayout\org.abego.treelayout.core\1.0.1\org.abego.treelayout.core-1.0.1.jar;C:\Users\elmehdi.tazi\.m2\repository\org\hamcrest\hamcrest-all\1.3\hamcrest-all-1.3.jar;C:\Users\elmehdi.tazi\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\elmehdi.tazi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\elmehdi.tazi\.m2\repository\commons-io\commons-io\2.5\commons-io-2.5.jar;C:\Users\elmehdi.tazi\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.0.4\kotlin-stdlib-1.0.4.jar;C:\Users\elmehdi.tazi\.m2\repository\org\jetbrains\kotlin\kotlin-runtime\1.0.4\kotlin-runtime-1.0.4.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\elmehdi.tazi"/>
+    <property name="user.language" value="fr"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-01-21"/>
+    <property name="java.home" value="C:\Program Files\openlogic-openjdk-21.0.6+7-windows-x64"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\elmehdi.tazi\AppData\Local\Temp\surefire5897439119274685777\surefirebooter-20250503203417460_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.6+7-adhoc.Administrator.jdk21u"/>
+    <property name="user.name" value="elmehdi.tazi"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="OpenLogic-OpenJDK"/>
+    <property name="localRepository" value="C:\Users\elmehdi.tazi\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://techsupport.roguewave.com/"/>
+    <property name="java.io.tmpdir" value="C:\Users\ELMEHD~1.TAZ\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.6"/>
+    <property name="user.dir" value="C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\openlogic-openjdk-21.0.6+7-windows-x64\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\openlogic-openjdk-21.0.6+7-windows-x64\bin;C:\Python313\Scripts\;C:\Python313\;C:\Program Files\apache-maven-3.9.9\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\WindowsPowerShell\Scripts;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Users\elmehdi.tazi\AppData\Local\Microsoft\WindowsApps;C:\Program Files\openlogic-openjdk-21.0.6+7-windows-x64\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.4\bin;;C:\Users\elmehdi.tazi\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\elmehdi.tazi\AppData\Roaming\npm;C:\Users\elmehdi.tazi\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\elmehdi.tazi\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.3.5\bin;;c:\Users\elmehdi.tazi\AppData\Roaming\Code - Insiders\User\globalStorage\github.copilot-chat\debugCommand;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="OpenLogic"/>
+    <property name="java.vm.version" value="21.0.6+7-adhoc.Administrator.jdk21u"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="shouldParse[0000_unknown_taglib.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.006">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\0000_unknown_taglib.jsp
+AttemptingFullContext:0, Col:14
+AttemptingFullContext:13, Col:14
+JSP Directive:taglib3
+uri=>([172 144 48] " ([192 172 144 48] just doesn't exist) ")
+prefix=>([172 144 48] " ([192 172 144 48] c) ")
+Element:<c:setvar="salary"scope="session"value="${2000*2}"/>
+has contentfalse
+var=>"salary"
+scope=>"session"
+value=>"${2000*2}"
+Expresion:${2000*2}
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[000_footer.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.006">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\000_footer.jsp
+AttemptingFullContext:0, Col:14
+AttemptingFullContext:10, Col:14
+ContextSensitivity:10, Col:20
+Element:<footer>
+    This is an included footer with a JSP tag to give us something to convert.<br/>
+    Here it is: ${message}.
+    <p>&copy; Company 2016</p>
+</footer>
+has contenttrue
+Element:<br/>
+has contentfalse
+Element:<p>&copy; Company 2016</p>
+has contenttrue
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[000_welcome.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.064">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\000_welcome.jsp
+AttemptingFullContext:3, Col:32
+AttemptingFullContext:4, Col:32
+AttemptingFullContext:17, Col:32
+AttemptingFullContext:18, Col:32
+AttemptingFullContext:31, Col:32
+AttemptingFullContext:32, Col:130
+AttemptingFullContext:41, Col:130
+AttemptingFullContext:126, Col:130
+AttemptingFullContext:174, Col:200
+AttemptingFullContext:187, Col:200
+AttemptingFullContext:196, Col:200
+AttemptingFullContext:296, Col:314
+AttemptingFullContext:318, Col:326
+ContextSensitivity:318, Col:336
+JSP Directive:taglib3
+prefix=>([172 144 70] " ([192 172 144 70] spring) ")
+uri=>([172 144 70] " ([192 172 144 70] http://www.springframework.org/tags) ")
+JSP Directive:taglib3
+prefix=>([172 144 70] " ([192 172 144 70] c) ")
+uri=>([172 144 70] " ([192 172 144 70] http://java.sun.com/jsp/jstl/core) ")
+Element:<htmllang="en">
+    <head>
+        <metacharset="utf-8"/>
+        <metahttp-equiv="X-UA-Compatible"content="IE=edge"/>
+        <metaname="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <!--The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags--> 
+        <metaname="description"content=""/>
+        <metaname="author"content=""/>
+        <linkrel="icon"href="favicon.ico"/>
+
+        <title>JSP2Thymeleaf Migration Sample Project</title>
+
+        <!-- Bootstrap core CSS -->
+        <linkhref="/webjars/bootstrap/3.3.7/css/bootstrap.css"rel="stylesheet"/>
+
+        <!-- Custom styles for this template -->
+        <linkhref="starter-template.css"rel="stylesheet"/>
+    </head>
+
+    <body>
+        <%@includefile="includes/header.jsp"%>
+
+        <divclass="container">
+            <h2>Common JSTL Tags</h2>
+            <%@includefile="includes/fragments/cout.jsp"%>
+            <%@includefile="includes/fragments/curl.jsp"%>
+            <%@includefile="includes/fragments/cif.jsp"%>
+            <%@includefile="includes/fragments/foreach_1.jsp"%>
+            <%@includefile="includes/fragments/foreach_2.jsp"%>
+            <%@includefile="includes/fragments/fortokens.jsp"%>
+            <%@includefile="includes/fragments/choose.jsp"%>
+
+        </div>
+
+        <hr/>
+
+        <%@includefile="includes/footer.jsp"%>
+
+        <!-- /container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <scriptsrc="/webjars/jquery/3.1.1/jquery.min.js"integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"crossorigin="anonymous"></script>
+        <scriptsrc="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
+has contenttrue
+lang=>"en"
+Element:<head>
+        <metacharset="utf-8"/>
+        <metahttp-equiv="X-UA-Compatible"content="IE=edge"/>
+        <metaname="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <!--The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags--> 
+        <metaname="description"content=""/>
+        <metaname="author"content=""/>
+        <linkrel="icon"href="favicon.ico"/>
+
+        <title>JSP2Thymeleaf Migration Sample Project</title>
+
+        <!-- Bootstrap core CSS -->
+        <linkhref="/webjars/bootstrap/3.3.7/css/bootstrap.css"rel="stylesheet"/>
+
+        <!-- Custom styles for this template -->
+        <linkhref="starter-template.css"rel="stylesheet"/>
+    </head>
+has contenttrue
+Element:<metacharset="utf-8"/>
+has contentfalse
+charset=>"utf-8"
+Element:<metahttp-equiv="X-UA-Compatible"content="IE=edge"/>
+has contentfalse
+http-equiv=>"X-UA-Compatible"
+content=>"IE=edge"
+Element:<metaname="viewport"content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+has contentfalse
+name=>"viewport"
+content=>"width=device-width, initial-scale=1, shrink-to-fit=no"
+Element:<metaname="description"content=""/>
+has contentfalse
+name=>"description"
+content=>""
+Element:<metaname="author"content=""/>
+has contentfalse
+name=>"author"
+content=>""
+Element:<linkrel="icon"href="favicon.ico"/>
+has contentfalse
+rel=>"icon"
+href=>"favicon.ico"
+Element:<title>JSP2Thymeleaf Migration Sample Project</title>
+has contenttrue
+Element:<linkhref="/webjars/bootstrap/3.3.7/css/bootstrap.css"rel="stylesheet"/>
+has contentfalse
+href=>"/webjars/bootstrap/3.3.7/css/bootstrap.css"
+rel=>"stylesheet"
+Element:<linkhref="starter-template.css"rel="stylesheet"/>
+has contentfalse
+href=>"starter-template.css"
+rel=>"stylesheet"
+Element:<body>
+        <%@includefile="includes/header.jsp"%>
+
+        <divclass="container">
+            <h2>Common JSTL Tags</h2>
+            <%@includefile="includes/fragments/cout.jsp"%>
+            <%@includefile="includes/fragments/curl.jsp"%>
+            <%@includefile="includes/fragments/cif.jsp"%>
+            <%@includefile="includes/fragments/foreach_1.jsp"%>
+            <%@includefile="includes/fragments/foreach_2.jsp"%>
+            <%@includefile="includes/fragments/fortokens.jsp"%>
+            <%@includefile="includes/fragments/choose.jsp"%>
+
+        </div>
+
+        <hr/>
+
+        <%@includefile="includes/footer.jsp"%>
+
+        <!-- /container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <scriptsrc="/webjars/jquery/3.1.1/jquery.min.js"integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"crossorigin="anonymous"></script>
+        <scriptsrc="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+has contenttrue
+JSP Directive:include3
+file=>([172 144 164 110 160 110 90 78] " ([192 172 144 164 110 160 110 90 78] includes/header.jsp) ")
+Element:<divclass="container">
+            <h2>Common JSTL Tags</h2>
+            <%@includefile="includes/fragments/cout.jsp"%>
+            <%@includefile="includes/fragments/curl.jsp"%>
+            <%@includefile="includes/fragments/cif.jsp"%>
+            <%@includefile="includes/fragments/foreach_1.jsp"%>
+            <%@includefile="includes/fragments/foreach_2.jsp"%>
+            <%@includefile="includes/fragments/fortokens.jsp"%>
+            <%@includefile="includes/fragments/choose.jsp"%>
+
+        </div>
+has contenttrue
+class=>"container"
+Element:<h2>Common JSTL Tags</h2>
+has contenttrue
+JSP Directive:include3
+file=>([172 144 164 110 160 110 160 110 90 78] " ([192 172 144 164 110 160 110 160 110 90 78] includes/fragments/cout.jsp) ")
+JSP Directive:include3
+file=>([172 144 164 110 160 110 160 110 90 78] " ([192 172 144 164 110 160 110 160 110 90 78] includes/fragments/curl.jsp) ")
+JSP Directive:include3
+file=>([172 144 164 110 160 110 160 110 90 78] " ([192 172 144 164 110 160 110 160 110 90 78] includes/fragments/cif.jsp) ")
+JSP Directive:include3
+file=>([172 144 164 110 160 110 160 110 90 78] " ([192 172 144 164 110 160 110 160 110 90 78] includes/fragments/foreach_1.jsp) ")
+JSP Directive:include3
+file=>([172 144 164 110 160 110 160 110 90 78] " ([192 172 144 164 110 160 110 160 110 90 78] includes/fragments/foreach_2.jsp) ")
+JSP Directive:include3
+file=>([172 144 164 110 160 110 160 110 90 78] " ([192 172 144 164 110 160 110 160 110 90 78] includes/fragments/fortokens.jsp) ")
+JSP Directive:include3
+file=>([172 144 164 110 160 110 160 110 90 78] " ([192 172 144 164 110 160 110 160 110 90 78] includes/fragments/choose.jsp) ")
+Element:<hr/>
+has contentfalse
+JSP Directive:include3
+file=>([172 144 164 110 160 110 90 78] " ([192 172 144 164 110 160 110 90 78] includes/footer.jsp) ")
+Element:<scriptsrc="/webjars/jquery/3.1.1/jquery.min.js"integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"crossorigin="anonymous"></script>
+has contentfalse
+src=>"/webjars/jquery/3.1.1/jquery.min.js"
+integrity=>"sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY"
+crossorigin=>"anonymous"
+Element:<scriptsrc="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+has contentfalse
+src=>"/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[00_jsp_kitchen_sink.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.037">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\00_jsp_kitchen_sink.jsp
+AttemptingFullContext:5, Col:6
+AttemptingFullContext:6, Col:19
+AttemptingFullContext:10, Col:19
+AttemptingFullContext:14, Col:19
+AttemptingFullContext:23, Col:38
+AttemptingFullContext:46, Col:90
+ContextSensitivity:46, Col:96
+Element:<html>
+    <head>
+        <title>Fragment ${current.title}</title>
+        <style>
+            .text{
+                display:<c:outvalue="normal"/>;
+                color: ${current.color}    
+            }
+        </style>
+    </head>
+    <bodyid="somevalue"class="avalue"data-test="${attExpr}">
+        <inputdisabledvalue=""type="text"/>
+        This is the body
+        ${some.value}
+        More text
+        <c:outvalue="boo with spaces"/>
+        Yet still more text
+    </body>
+</html>
+has contenttrue
+Element:<head>
+        <title>Fragment ${current.title}</title>
+        <style>
+            .text{
+                display:<c:outvalue="normal"/>;
+                color: ${current.color}    
+            }
+        </style>
+    </head>
+has contenttrue
+Element:<title>Fragment ${current.title}</title>
+has contenttrue
+Element:<style>
+            .text{
+                display:<c:outvalue="normal"/>;
+                color: ${current.color}    
+            }
+        </style>
+has contenttrue
+Element:<c:outvalue="normal"/>
+has contentfalse
+value=>"normal"
+Element:<bodyid="somevalue"class="avalue"data-test="${attExpr}">
+        <inputdisabledvalue=""type="text"/>
+        This is the body
+        ${some.value}
+        More text
+        <c:outvalue="boo with spaces"/>
+        Yet still more text
+    </body>
+has contenttrue
+id=>"somevalue"
+class=>"avalue"
+data-test=>"${attExpr}"
+Expresion:${attExpr}
+Element:<inputdisabledvalue=""type="text"/>
+has contentfalse
+disabled=>nil
+value=>""
+type=>"text"
+Element:<c:outvalue="boo with spaces"/>
+has contentfalse
+value=>"boo with spaces"
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[01_clean_html.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.006">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\01_clean_html.jsp
+AttemptingFullContext:0, Col:12
+AttemptingFullContext:4, Col:12
+AttemptingFullContext:8, Col:12
+AttemptingFullContext:16, Col:20
+AttemptingFullContext:28, Col:56
+ContextSensitivity:28, Col:62
+Element:<html>
+    <head>
+        <title>Fragment</title>
+        <style>
+            .text{
+                display:normal;
+                color: blue;    
+            }
+        </style>
+    </head>
+    <bodyid="somevalue"class="aClass">
+        <inputdisabledvalue=""type="text"/>
+        This is the body
+        More text
+        Yet still more text
+    </body>
+</html>
+has contenttrue
+Element:<head>
+        <title>Fragment</title>
+        <style>
+            .text{
+                display:normal;
+                color: blue;    
+            }
+        </style>
+    </head>
+has contenttrue
+Element:<title>Fragment</title>
+has contenttrue
+Element:<style>
+            .text{
+                display:normal;
+                color: blue;    
+            }
+        </style>
+has contenttrue
+Element:<bodyid="somevalue"class="aClass">
+        <inputdisabledvalue=""type="text"/>
+        This is the body
+        More text
+        Yet still more text
+    </body>
+has contenttrue
+id=>"somevalue"
+class=>"aClass"
+Element:<inputdisabledvalue=""type="text"/>
+has contentfalse
+disabled=>nil
+value=>""
+type=>"text"
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[02_cout.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.013">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\02_cout.jsp
+AttemptingFullContext:0, Col:14
+AttemptingFullContext:13, Col:14
+AttemptingFullContext:14, Col:26
+ContextSensitivity:14, Col:28
+AttemptingFullContext:29, Col:30
+AttemptingFullContext:38, Col:39
+AttemptingFullContext:50, Col:51
+JSP Directive:taglib3
+uri=>([172 144 48] ' ([192 172 144 48] http://java.sun.com/jstl/core) ')
+prefix=>([172 144 48] ' ([192 172 144 48] c) ')
+Element:<div<c:outvalue="style=&quot;display:none;&quot;"/>>div content</div>
+has contenttrue
+Element:<c:outvalue="style=&quot;display:none;&quot;"/>
+has contentfalse
+value=>"style=&quot;display:none;&quot;"
+Element:<c:outvalue='${param.name}'/>
+has contentfalse
+value=>'${param.name}'
+Expresion:${param.name}
+Element:<c:outvalue="${inBodyMessage}"/>
+has contentfalse
+value=>"${inBodyMessage}"
+Expresion:${inBodyMessage}
+Element:<br/>
+has contentfalse
+Element:<inputvalue='<c:outvalue="${inAttributeMessage}"/>'/>
+has contentfalse
+value=>'<c:outvalue="${inAttributeMessage}"/>'
+Element:<c:outvalue="${inAttributeMessage}"/>
+has contentfalse
+value=>"${inAttributeMessage}"
+Expresion:${inAttributeMessage}
+Element:<br/>
+has contentfalse
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[03_cif.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.021">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\03_cif.jsp
+AttemptingFullContext:0, Col:28
+AttemptingFullContext:13, Col:28
+AttemptingFullContext:14, Col:28
+AttemptingFullContext:27, Col:28
+AttemptingFullContext:28, Col:42
+ContextSensitivity:28, Col:44
+AttemptingFullContext:45, Col:46
+AttemptingFullContext:46, Col:55
+ContextSensitivity:46, Col:57
+JSP Directive:taglib3
+uri=>([172 144 48] ' ([192 172 144 48] http://java.sun.com/jstl/core) ')
+prefix=>([172 144 48] ' ([192 172 144 48] c) ')
+JSP Directive:taglib3
+uri=>([172 144 48] ' ([192 172 144 48] http://java.sun.com/jstl/functions) ')
+prefix=>([172 144 48] ' ([192 172 144 48] fn) ')
+Element:<c:iftest='${!param.amount}'id='barry'> 
+    Some text here
+</c:if>
+has contenttrue
+test=>'${!param.amount}'
+id=>'barry'
+Expresion:${!param.amount}
+Element:<c:iftest="${fn:contains(name, searchString)}">Boo</c:if>
+has contenttrue
+test=>"${fn:contains(name, searchString)}"
+Expresion:${fn:contains(name, searchString)}
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[04_foreach.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.015">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\04_foreach.jsp
+AttemptingFullContext:0, Col:14
+AttemptingFullContext:13, Col:14
+AttemptingFullContext:14, Col:33
+ContextSensitivity:14, Col:35
+AttemptingFullContext:36, Col:37
+AttemptingFullContext:37, Col:51
+ContextSensitivity:37, Col:53
+AttemptingFullContext:54, Col:55
+AttemptingFullContext:55, Col:79
+ContextSensitivity:55, Col:81
+AttemptingFullContext:82, Col:83
+AttemptingFullContext:83, Col:102
+ContextSensitivity:83, Col:104
+AttemptingFullContext:105, Col:106
+AttemptingFullContext:106, Col:135
+ContextSensitivity:106, Col:137
+JSP Directive:taglib3
+uri=>([172 144 48] ' ([192 172 144 48] http://java.sun.com/jstl/core) ')
+prefix=>([172 144 48] ' ([192 172 144 48] c) ')
+Element:<c:forEachvar="anItem"items="${itemlist}"varStatus='statusVar'>
+    First Form here
+</c:forEach>
+has contenttrue
+var=>"anItem"
+items=>"${itemlist}"
+varStatus=>'statusVar'
+Expresion:${itemlist}
+Element:<c:forEachvar="anItem"items="${itemlist}">
+    Second Form here
+</c:forEach>
+has contenttrue
+var=>"anItem"
+items=>"${itemlist}"
+Expresion:${itemlist}
+Element:<c:forEachvar="anotherItem"begin="1"end='10'step='2'>
+    Third Form here
+</c:forEach>
+has contenttrue
+var=>"anotherItem"
+begin=>"1"
+end=>'10'
+step=>'2'
+Element:<c:forEachvar="anotherItem"begin="1"end='10'>
+    Fourth Form here
+</c:forEach>
+has contenttrue
+var=>"anotherItem"
+begin=>"1"
+end=>'10'
+Element:<c:forEachvar="anotherItem"begin="1"end='10'step='2'varStatus='statusVar'>
+    Fifth Form here
+</c:forEach>
+has contenttrue
+var=>"anotherItem"
+begin=>"1"
+end=>'10'
+step=>'2'
+varStatus=>'statusVar'
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[05_cset.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.013">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\05_cset.jsp
+AttemptingFullContext:0, Col:14
+AttemptingFullContext:13, Col:14
+JSP Directive:taglib3
+uri=>([172 144 48] " ([192 172 144 48] http://java.sun.com/jsp/jstl/core) ")
+prefix=>([172 144 48] " ([192 172 144 48] c) ")
+Element:<c:setvar="salary"scope="session"value="${2000*2}"/>
+has contentfalse
+var=>"salary"
+scope=>"session"
+value=>"${2000*2}"
+Expresion:${2000*2}
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[06_curl.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.008">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\06_curl.jsp
+AttemptingFullContext:0, Col:4
+ContextSensitivity:0, Col:6
+AttemptingFullContext:7, Col:8
+AttemptingFullContext:11, Col:12
+AttemptingFullContext:12, Col:16
+ContextSensitivity:12, Col:18
+AttemptingFullContext:19, Col:20
+AttemptingFullContext:33, Col:34
+AttemptingFullContext:52, Col:56
+AttemptingFullContext:53, Col:56
+AttemptingFullContext:54, Col:56
+AttemptingFullContext:55, Col:56
+AttemptingFullContext:59, Col:61
+AttemptingFullContext:60, Col:61
+Element:<h3>c:url</h3>
+has contenttrue
+Element:<br/>
+has contentfalse
+Element:<pre>
+&lt;c:url value="/resources/text.txt" var="url"/&gt;
+&lt;spring:url value="/resources/text.txt" htmlEscape="true" var="springUrl" /&gt;
+JSTL URL: \${url}&lt;br/&gt;
+</pre>
+has contenttrue
+Element:<c:urlvalue="/resources/text.txt"var="url"/>
+has contentfalse
+value=>"/resources/text.txt"
+var=>"url"
+Element:<spring:urlvalue="/resources/text.txt"htmlEscape="true"var="springUrl"/>
+has contentfalse
+value=>"/resources/text.txt"
+htmlEscape=>"true"
+var=>"springUrl"
+Element:<br/>
+has contentfalse
+Element:<br/>
+has contentfalse
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[09_curl.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.008">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\09_curl.jsp
+AttemptingFullContext:0, Col:14
+AttemptingFullContext:13, Col:14
+AttemptingFullContext:27, Col:28
+AttemptingFullContext:28, Col:55
+ContextSensitivity:28, Col:57
+AttemptingFullContext:33, Col:49
+ContextSensitivity:33, Col:41
+JSP Directive:taglib3
+uri=>([172 144 48] " ([192 172 144 48] http://java.sun.com/jsp/jstl/core) ")
+prefix=>([172 144 48] " ([192 172 144 48] c) ")
+Element:<c:urlvar="someVar"value="/root/path/here"/>
+has contentfalse
+var=>"someVar"
+value=>"/root/path/here"
+Element:<ahref="<c:urlvalue="/embedded/path"><c:paramvalue="george"/></c:url>">Some Link</a>
+has contenttrue
+href=>"<c:urlvalue="/embedded/path"><c:paramvalue="george"/></c:url>"
+Element:<c:urlvalue="/embedded/path"><c:paramvalue="george"/></c:url>
+has contenttrue
+value=>"/embedded/path"
+Element:<c:paramvalue="george"/>
+has contentfalse
+value=>"george"
+]]></system-out>
+  </testcase>
+  <testcase name="shouldParse[foreach_1.jsp]" classname="com.cybernostics.jspparser.JSPParserHappyCaseTest" time="0.005">
+    <system-out><![CDATA[Testing:C:\Users\elmehdi.tazi\DEV\PFE\jsp-thymeleaf-toolkit\jsp-parser\target\test-classes\happy_case_files\foreach_1.jsp
+AttemptingFullContext:0, Col:14
+AttemptingFullContext:13, Col:14
+AttemptingFullContext:14, Col:18
+ContextSensitivity:14, Col:20
+AttemptingFullContext:21, Col:22
+AttemptingFullContext:22, Col:26
+ContextSensitivity:22, Col:28
+AttemptingFullContext:29, Col:30
+AttemptingFullContext:30, Col:56
+ContextSensitivity:30, Col:58
+JSP Directive:taglib3
+prefix=>([172 144 48] " ([192 172 144 48] fn) ")
+uri=>([172 144 48] " ([192 172 144 48] http://java.sun.com/jsp/jstl/functions) ")
+Element:<h3>foreach - Form 1 (List iterator)</h3>
+has contenttrue
+Element:<pre>
+&lt;c:foreach var="item" items="\${fn:splitTokens('red,green,blue')}" varStatus="status"&gt;
+This is item \${item}. Status is \${status.index}&lt;br/&gt;
+&lt;/c:foreach&gt;
+                
+</pre>
+has contenttrue
+Element:<c:foreachvar="item"items="${fn:split('red,green,blue')}"varStatus="status">
+    This is item ${item}. Status is ${status.index}<br/>
+</c:foreach>
+has contenttrue
+var=>"item"
+items=>"${fn:split('red,green,blue')}"
+varStatus=>"status"
+Expresion:${fn:split('red,green,blue')}
+Element:<br/>
+has contentfalse
+]]></system-out>
+  </testcase>
+</testsuite>
