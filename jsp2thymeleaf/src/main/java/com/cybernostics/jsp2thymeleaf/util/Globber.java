@@ -90,4 +90,32 @@ public class Globber
                 .map(glob -> FileSystems.getDefault().getPathMatcher(glob))
                 .collect(toList());
     }
+
+    /**
+     * Run globbing on the given path with include and exclude patterns
+     * 
+     * @param path The base path to start searching from
+     * @param includes Patterns to include
+     * @param excludes Patterns to exclude
+     * @return Set of paths matching the include patterns but not the exclude patterns
+     */
+    public static Set<String> run(Path path, String[] includes, String[] excludes) {
+        // Convert Path to String for the existing match method
+        String location = path.toString();
+        
+        // Get all files matching the includes
+        Set<Path> includedFiles = match(location, includes);
+        
+        // If there are excludes, remove them from the results
+        if (excludes != null && excludes.length > 0 && 
+            !(excludes.length == 1 && excludes[0].isEmpty())) {
+            Set<Path> excludedFiles = match(location, excludes);
+            includedFiles.removeAll(excludedFiles);
+        }
+        
+        // Convert Path objects to relative path strings
+        return includedFiles.stream()
+            .map(p -> path.relativize(p).toString())
+            .collect(java.util.stream.Collectors.toSet());
+    }
 }

@@ -230,13 +230,22 @@
                                 </goals> 
                                 <configuration>
                                     <taglibConverterPackages>com.cybernostics.jsp2thymeleaf.conveters.tld</taglibConverterPackages>
-                                    <outputDirectory>src/main/resources/templates</outputDirectory>
+                                    <srcDirectory>${project.basedir}/src/main/resources/jsp</srcDirectory>
+                                    <outputDirectory>${project.basedir}/src/main/resources/templates</outputDirectory>
+                                    <generateReports>true</generateReports>
+                                    <reportTypes>
+                                        <reportType>html</reportType>
+                                        <reportType>json</reportType>
+                                        <reportType>summary</reportType>
+                                    </reportTypes>
+                                    <reportsOutputDir>${project.build.directory}/jsp2thymeleaf-reports</reportsOutputDir>
+                                    <scriptletHandlingStrategy>HTML_COMMENT</scriptletHandlingStrategy>
                                 </configuration>
                             </execution> 
                         </executions> 
                         <dependencies>
                             <dependency>
-                                <groupId>com.somecompany</groupId>  
+                                <groupId>com.cybernostics</groupId>  
                                 <artifactId>jsp2thymeleaf-converters-spring-form</artifactId>  
                                 <version>1.0.0</version>  
                                 <type>jar</type>

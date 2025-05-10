@@ -1,0 +1,5 @@
+HelpMojo.class
+com\cybernostics\jsp2thymeleaf\maven\JSPConvertMojo.class
+com\cybernostics\jsp2thymeleaf\maven\JSPReportMojo.class
+com\cybernostics\jsp2thymeleaf\maven\JSPTaglibMojo.class
+com\cybernostics\jsp2thymeleaf\maven\JSPReportMojo$1.class

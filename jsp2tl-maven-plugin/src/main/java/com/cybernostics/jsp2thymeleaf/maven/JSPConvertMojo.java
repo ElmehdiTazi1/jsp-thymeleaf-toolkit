@@ -58,6 +58,30 @@ public class JSPConvertMojo
     @Parameter(defaultValue = "com.cybernostics.jsp2thymeleaf.conveters.tld", required = false)
     private String taglibConverterPackages;
 
+    /**
+     * Enable generation of reports after conversion
+     */
+    @Parameter(defaultValue = "false", property = "generateReports", required = false)
+    private Boolean generateReports;
+
+    /**
+     * Types of reports to generate: html, json, summary
+     */
+    @Parameter(property = "reportTypes", required = false)
+    private String[] reportTypes = {"html", "json", "summary"};
+
+    /**
+     * Directory where reports will be generated
+     */
+    @Parameter(defaultValue = "${project.build.directory}/jsp2thymeleaf-reports", property = "reportsOutputDir", required = false)
+    private File reportsOutputDir;
+
+    /**
+     * Option to handle scriptlets: COMMENT, THYMELEAF_COMMENT, or EXTRACT
+     */
+    @Parameter(defaultValue = "COMMENT", property = "scriptletHandlingStrategy", required = false)
+    private String scriptletHandlingStrategy;
+
     public String getTaglibConverterPackages() {
         return taglibConverterPackages;
     }
@@ -89,6 +113,22 @@ public class JSPConvertMojo
         return includes;
     }
 
+    public Boolean getGenerateReports() {
+        return generateReports;
+    }
+
+    public String[] getReportTypes() {
+        return reportTypes;
+    }
+
+    public File getReportsOutputDir() {
+        return reportsOutputDir;
+    }
+
+    public String getScriptletHandlingStrategy() {
+        return scriptletHandlingStrategy;
+    }
+
     public void execute()
             throws MojoExecutionException {
         final Log log = getLog();
@@ -97,18 +137,49 @@ public class JSPConvertMojo
         log.info("srcDirectory = " + srcDirectory.getAbsolutePath());
         log.info("updateLinks = " + updateLinks);
         log.info("taglib scripts folder " + converterScriptDirectory.toString());
+        
+        if (generateReports) {
+            log.info("Report generation enabled");
+            log.info("Report types: " + Arrays.toString(reportTypes));
+            log.info("Reports output directory: " + reportsOutputDir.getAbsolutePath());
+            log.info("Scriptlet handling strategy: " + scriptletHandlingStrategy);
+            
+            // Create reports directory if it doesn't exist
+            if (!reportsOutputDir.exists()) {
+                reportsOutputDir.mkdirs();
+            }
+        }
+        
+        // Get the scripts folder path as a String
+        String converterScriptPath = converterScriptDirectory.exists() ? 
+                                    converterScriptDirectory.getAbsolutePath() : "";
+        
         JSP2ThymeleafConfiguration config = JSP2ThymeleafConfiguration
                 .getBuilder()
                 .withIncludes(includes)
                 .withExcludes(excludes)
                 .withSrcFolder(srcDirectory.toString())
                 .withDestFolder(outputDirectory.toString())
-                .withConverterScripts(scriptsInFolder(converterScriptDirectory))
-                .withConverterPackages(taglibConverterPackages.split(","))
+                .withConverterScripts(converterScriptPath) // Passing String path instead of String[]
+                .withConverterPackages(taglibConverterPackages)
+                .withGenerateReports(generateReports)
+                .withReportTypes(reportTypes)
+                .withReportsOutputDir(reportsOutputDir.toString())
+                .withScriptletHandlingStrategy(scriptletHandlingStrategy)
                 .build();
+                
         JSP2Thymeleaf jSP2Thymeleaf = new JSP2Thymeleaf(config);
         try {
             final List<JSP2ThymeLeafException> exceptions = jSP2Thymeleaf.run();
+            
+            // Generate reports if configured
+            if (generateReports) {
+                log.info("Generating conversion reports...");
+                jSP2Thymeleaf.generateReports();
+                log.info("Reports generated successfully in " + reportsOutputDir.getAbsolutePath());
+            }
+            
+            // Print summary of conversion results
             if (exceptions.isEmpty()) {
                 log.info("JSP2Thymeleaf converted all files successfully.");
             } else {

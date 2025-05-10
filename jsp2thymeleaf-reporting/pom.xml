@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.cybernostics</groupId>    
+    <artifactId>jsp2thymeleaf-reporting</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    
+    <name>JSP2Thymeleaf Reporting</name>
+    <description>Reporting module for JSP to Thymeleaf conversion process</description>
+    
+    <properties>
+        <jackson.version>2.14.0</jackson.version>
+        <velocity.version>2.3</velocity.version>
+        <junit.version>5.9.1</junit.version>
+        <maven.version>3.9.0</maven.version>
+        <maven.plugin.annotations.version>3.6.0</maven.plugin.annotations.version>
+    </properties>
+    
+    <dependencies>
+        <!-- Core project dependencies -->
+        <dependency>
+            <groupId>com.cybernostics</groupId>
+            <artifactId>jsp2thymeleaf-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+        <!-- Add dependency to jsp2thymeleaf module -->
+        <dependency>
+            <groupId>com.cybernostics</groupId>
+            <artifactId>jsp2thymeleaf</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+        <!-- Maven Plugin API dependencies -->
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>${maven.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <version>${maven.plugin.annotations.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- JSON Serialization -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        
+        <!-- Template Engine for HTML Reports -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>${velocity.version}</version>
+        </dependency>
+        
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>

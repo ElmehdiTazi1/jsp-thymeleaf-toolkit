@@ -5,6 +5,7 @@
  */
 package com.cybernostics.jsp2thymeleaf;
 
+import com.cybernostics.jsp2thymeleaf.api.common.ScriptletHandlingStrategy;
 import com.cybernostics.jsp2thymeleaf.api.util.SetUtils;
 import com.cybernostics.jsp2thymeleaf.converters.AllJstlConverters;
 import com.cybernostics.jsp2thymeleaf.util.Globber;
@@ -45,6 +46,10 @@ public class JSP2ThymeleafConfiguration
     private Path srcFolder;
     private Path destFolder;
     private Path rootFolder;
+    
+    // Configuration pour les scriptlets
+    private ScriptletHandlingStrategy scriptletStrategy = ScriptletHandlingStrategy.HTML_COMMENT;
+    private Path scriptletExtractionFolder;
 
     private static final String[] EMPTY = new String[0];
     private String[] includes = EMPTY;
@@ -63,14 +68,21 @@ public class JSP2ThymeleafConfiguration
 
     private List<Path> converterScripts = EMPTY_LIST;
 
+    // Reporting configuration
+    private boolean generateReports = false;
+    private String[] reportTypes = {"html", "json", "summary"};
+    private Path reportsOutputDir;
+    private boolean verboseReports = false;
+
     public Set<Path> getFilesToProcess()
     {
+        processPathParameters();
+        reportAnyMissingFiles();
         return filesToProcess;
     }
 
     private JSP2ThymeleafConfiguration()
     {
-        converterPackages.addAll(Arrays.asList(AllJstlConverters.class.getPackage().getName()));
     }
 
     /**
@@ -93,6 +105,16 @@ public class JSP2ThymeleafConfiguration
             options.addOption("i", "includes", true, "Comma-separated list of ant patterns to include.\n  Default is *.jsp,*.jspx,*.jspf");
             options.addOption("e", "excludes", true, "Comma-separated list of ant patterns to exclude.\n  Default is empty");
             options.addOption("b", "show-banner", false, "Whether to add the JSP2thymeleaf banner to the JSPs");
+            // Nouvelles options pour la gestion des scriptlets
+            options.addOption("st", "scriptlet-strategy", true, "Strategy for handling scriptlets: HTML_COMMENT, THYMELEAF_COMMENT, EXTRACT_TO_FILE, or FAIL_ON_SCRIPTLET");
+            options.addOption("ef", "extraction-folder", true, "Folder where to extract scriptlets when using EXTRACT_TO_FILE strategy");
+            
+            // Reporting options
+            options.addOption("r", "generate-reports", false, "Generate reports after conversion");
+            options.addOption("rt", "report-types", true, "Comma-separated list of report types: html,json,summary");
+            options.addOption("ro", "reports-output-dir", true, "Directory where to write the reports");
+            options.addOption("v", "verbose-reports", false, "Include verbose details in reports");
+            
             final JSP2ThymeleafConfiguration config = new JSP2ThymeleafConfiguration();
 
             Parser parser = new PosixParser();
@@ -108,23 +130,89 @@ public class JSP2ThymeleafConfiguration
                             .split(","))
                             .filter(it -> it.length() > 0)
                             .collect(toList()));
-            config.converterScripts = Arrays.stream(parsedArgs.getOptionValue("g", "").split(","))
-                    .filter(it -> it.length() > 0)
-                    .map(filename -> Paths.get(filename))
-                    .collect(toList());
 
-            config.processPathParameters();
+            if (parsedArgs.hasOption("g")) {
+                config.converterScripts = asList(parsedArgs.getOptionValue("g").split(",")).stream().map(path -> Paths.get(path)).collect(toList());
+            } else {
+                config.converterScripts = EMPTY_LIST;
+            }
+            
+            // Traitement des options de scriptlet
+            if (parsedArgs.hasOption("st")) {
+                try {
+                    config.scriptletStrategy = ScriptletHandlingStrategy.valueOf(parsedArgs.getOptionValue("st"));
+                } catch (IllegalArgumentException e) {
+                    System.err.println("Invalid scriptlet strategy: " + parsedArgs.getOptionValue("st") + 
+                            ". Using default: " + config.scriptletStrategy);
+                }
+            }
+            
+            if (parsedArgs.hasOption("ef")) {
+                config.scriptletExtractionFolder = Paths.get(parsedArgs.getOptionValue("ef")).toAbsolutePath();
+            }
 
+            // Parsing reporting options
+            config.generateReports = parsedArgs.hasOption("r");
+            if (parsedArgs.hasOption("rt")) {
+                config.reportTypes = parsedArgs.getOptionValue("rt").split(",");
+            }
+            if (parsedArgs.hasOption("ro")) {
+                config.reportsOutputDir = Paths.get(parsedArgs.getOptionValue("ro")).toAbsolutePath();
+            } else {
+                // Default output directory is a "reports" folder in the destination directory
+                config.reportsOutputDir = config.destFolder.resolve("reports");
+            }
+            config.verboseReports = parsedArgs.hasOption("v");
+            
+            // Create reports directory if reports are enabled
+            if (config.generateReports && config.reportsOutputDir != null) {
+                config.ensureExists(config.reportsOutputDir);
+            }
+
+            AllJstlConverters.init();
             return config;
         } catch (ParseException ex)
         {
-            throw new RuntimeException(ex);
+            Logger.getLogger(JSP2ThymeleafConfiguration.class.getName()).log(Level.SEVERE, null, ex);
+            throw new IllegalArgumentException("Error parsing command line:" + ex.getMessage(), ex);
         }
     }
 
     public boolean isShowBanner()
     {
         return showBanner;
+    }
+    
+    /**
+     * Indicates if reports should be generated after conversion
+     * @return true if reports should be generated, false otherwise
+     */
+    public boolean isGenerateReports() {
+        return generateReports;
+    }
+    
+    /**
+     * Gets the types of reports to generate
+     * @return Array of report types (html, json, summary)
+     */
+    public String[] getReportTypes() {
+        return reportTypes;
+    }
+    
+    /**
+     * Gets the output directory for generated reports
+     * @return Output directory path
+     */
+    public Path getReportsOutputDir() {
+        return reportsOutputDir;
+    }
+    
+    /**
+     * Indicates if verbose reporting is enabled
+     * @return true if verbose, false otherwise
+     */
+    public boolean isVerboseReports() {
+        return verboseReports;
     }
 
     public Path getSrcFolder()
@@ -154,50 +242,28 @@ public class JSP2ThymeleafConfiguration
 
     public Path getOutputPathFor(Path inputFile)
     {
-        Path outputPath = inputFile;
-        if (inputFile.startsWith(srcFolder))
-        {
-            Path relative = srcFolder.relativize(inputFile);
-            outputPath = destFolder.resolve(relative);
-        }
-
-        // now change extension to .html
-        String filename = outputPath.getFileName().toString();
-        String newFilename = filename.replaceAll("\\.[^.]+$", ".html");
-
-        if (inputFile.equals(outputPath))
-        {
-            throw new IllegalArgumentException("Source cannot be the same as destination:" + inputFile.toString());
-        }
-        final Path parentPath = outputPath.getParent();
-        ensureExists(parentPath);
-        return parentPath.resolve(newFilename);
-
+        String relPath = rootFolder.relativize(inputFile).toString();
+        String outname = relPath.replaceAll("\\.jspx?$", ".html");
+        Path outpath = destFolder.resolve(outname);
+        ensureExists(outpath.getParent());
+        return outpath;
     }
 
     private void processPathParameters()
     {
-        if (srcFolder != null)
-        {
-            filesToProcess = Globber.match(srcFolder.toString(), includes);
-            final Set<Path> exclusions = Globber.match(srcFolder.toString(), excludes);
-            filesToProcess.removeAll(exclusions);
-
-            for (String filename : filenames)
-            {
-                final Path eachPath = Paths.get(filename);
-                if (eachPath.isAbsolute())
-                {
-                    filesToProcess.add(eachPath);
-                } else
-                {
-                    filesToProcess.add(srcFolder.resolve(eachPath));
+        if (srcFolder != null) {
+            rootFolder = srcFolder;
+            filesToProcess = Globber.run(srcFolder, includes, excludes).stream().map(name -> srcFolder.resolve(name)).collect(Collectors.toSet());
+        } else {
+            Set<Path> files = stream(filenames).map(it -> Paths.get(it).toAbsolutePath()).collect(Collectors.toSet());
+            if (!files.isEmpty()) {
+                Path parent = files.iterator().next().getParent();
+                rootFolder = parent != null ? parent : Paths.get("");
+                if (!destFolder.toFile().exists()) {
+                    ensureExists(destFolder);
                 }
+                filesToProcess = files;
             }
-            reportAnyMissingFiles();
-
-            ensureExists(destFolder);
-
         }
     }
 
@@ -220,7 +286,7 @@ public class JSP2ThymeleafConfiguration
 
     private void ensureExists(Path destFolder)
     {
-        if (!Files.exists(destFolder))
+        if (!destFolder.toFile().exists())
         {
             try
             {
@@ -228,18 +294,14 @@ public class JSP2ThymeleafConfiguration
             } catch (IOException ex)
             {
                 Logger.getLogger(JSP2ThymeleafConfiguration.class.getName()).log(Level.SEVERE, null, ex);
-                throw new RuntimeException(ex);
+                throw new RuntimeException("Can't create directory:" + destFolder, ex);
             }
-        }
-        if (!Files.exists(destFolder))
-        {
-            throw new RuntimeException("Unable to create path:" + destFolder.toString() + ".\n Check permissions and storage space.");
         }
     }
 
     public Path getRootFolder()
     {
-        return rootFolder != null ? rootFolder : srcFolder;
+        return rootFolder;
     }
 
     public List<String> getConverterPackages()
@@ -250,6 +312,24 @@ public class JSP2ThymeleafConfiguration
     public List<Path> getConverterScripts()
     {
         return converterScripts;
+    }
+    
+    /**
+     * Obtient la stratégie de traitement des scriptlets configurée
+     * 
+     * @return Stratégie de traitement des scriptlets
+     */
+    public ScriptletHandlingStrategy getScriptletStrategy() {
+        return scriptletStrategy;
+    }
+    
+    /**
+     * Obtient le dossier d'extraction des scriptlets configuré
+     * 
+     * @return Dossier d'extraction des scriptlets ou null si non configuré
+     */
+    public Path getScriptletExtractionFolder() {
+        return scriptletExtractionFolder;
     }
 
     public static class JSP2ThymeleafConfigurationBuilder
@@ -302,22 +382,105 @@ public class JSP2ThymeleafConfiguration
             configuration.converterPackages.addAll(asList(packages));
             return this;
         }
+        
+        /**
+         * Configure the converter scripts to use for processing
+         * 
+         * @param scriptPath Path to converter script directory or file
+         * @return The builder for chaining
+         */
+        public JSP2ThymeleafConfigurationBuilder withConverterScripts(String scriptPath) {
+            configuration.converterScripts = Arrays.asList(Paths.get(scriptPath));
+            return this;
+        }
+        
+        /**
+         * Configure la stratégie de traitement des scriptlets
+         * 
+         * @param strategy Stratégie à utiliser
+         * @return Le builder pour chaînage
+         */
+        public JSP2ThymeleafConfigurationBuilder withScriptletStrategy(ScriptletHandlingStrategy strategy) {
+            configuration.scriptletStrategy = strategy;
+            return this;
+        }
+        
+        /**
+         * Configure le dossier d'extraction des scriptlets pour la stratégie EXTRACT_TO_FILE
+         * 
+         * @param extractionFolder Dossier d'extraction
+         * @return Le builder pour chaînage
+         */
+        public JSP2ThymeleafConfigurationBuilder withScriptletExtractionFolder(String extractionFolder) {
+            configuration.scriptletExtractionFolder = Paths.get(extractionFolder).toAbsolutePath();
+            return this;
+        }
 
-        public JSP2ThymeleafConfigurationBuilder withConverterScripts(String... converterScripts)
-        {
-            configuration.converterScripts = stream(converterScripts)
-                    .filter(it -> it.length() > 0)
-                    .map(it -> Paths.get(it))
-                    .collect(toList());
+        /**
+         * Configure whether to generate reports
+         * 
+         * @param generateReports true to generate reports, false otherwise
+         * @return The builder for chaining
+         */
+        public JSP2ThymeleafConfigurationBuilder withGenerateReports(Boolean generateReports) {
+            configuration.generateReports = generateReports;
+            return this;
+        }
+        
+        /**
+         * Configure the types of reports to generate
+         * 
+         * @param reportTypes Array of report types (html, json, summary)
+         * @return The builder for chaining
+         */
+        public JSP2ThymeleafConfigurationBuilder withReportTypes(String[] reportTypes) {
+            configuration.reportTypes = reportTypes;
+            return this;
+        }
+        
+        /**
+         * Configure the output directory for reports
+         * 
+         * @param reportsOutputDir Directory path for report output
+         * @return The builder for chaining
+         */
+        public JSP2ThymeleafConfigurationBuilder withReportsOutputDir(String reportsOutputDir) {
+            configuration.reportsOutputDir = Paths.get(reportsOutputDir).toAbsolutePath();
+            return this;
+        }
+        
+        /**
+         * Configure whether to include verbose details in reports
+         * 
+         * @param verboseReports true for verbose reports, false otherwise
+         * @return The builder for chaining
+         */
+        public JSP2ThymeleafConfigurationBuilder withVerboseReports(Boolean verboseReports) {
+            configuration.verboseReports = verboseReports;
+            return this;
+        }
+        
+        /**
+         * Configure the scriptlet handling strategy using a string name
+         * 
+         * @param strategyName String name of the strategy
+         * @return The builder for chaining
+         */
+        public JSP2ThymeleafConfigurationBuilder withScriptletHandlingStrategy(String strategyName) {
+            try {
+                configuration.scriptletStrategy = ScriptletHandlingStrategy.valueOf(strategyName);
+            } catch (IllegalArgumentException e) {
+                System.err.println("Invalid scriptlet strategy: " + strategyName + 
+                        ". Using default: " + configuration.scriptletStrategy);
+            }
             return this;
         }
 
         public JSP2ThymeleafConfiguration build()
         {
-            configuration.processPathParameters();
+            AllJstlConverters.init();
             return configuration;
         }
-
     }
 
 }

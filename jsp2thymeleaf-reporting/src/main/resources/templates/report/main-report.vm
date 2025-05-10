@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSP to Thymeleaf Conversion Report - $report.projectName</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f8fa;
+        }
+        
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        
+        .header {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .full-width {
+            width: 100%;
+        }
+        
+        .half-width {
+            width: calc(50% - 10px);
+        }
+        
+        @media (max-width: 768px) {
+            .half-width {
+                width: 100%;
+            }
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Statistics */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .stat-box {
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            border-left: 5px solid #007bff;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Issue Severities */
+        .severity-critical {
+            background-color: #ffebee;
+            border-left: 5px solid #d32f2f;
+        }
+        
+        .severity-error {
+            background-color: #fff3e0;
+            border-left: 5px solid #f57c00;
+        }
+        
+        .severity-warning {
+            background-color: #fffde7;
+            border-left: 5px solid #fbc02d;
+        }
+        
+        .severity-info {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1976d2;
+        }
+        
+        /* Charts */
+        .chart-container {
+            position: relative;
+            height: 250px;
+            margin: 20px 0;
+        }
+        
+        .chart-card {
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>JSP to Thymeleaf Conversion Report</h1>
+        <p>Project: <strong>$report.projectName</strong></p>
+        <p>
+            Generated on: <strong>$report.endTime</strong><br>
+            Processing Time: <strong>$formatter.formatDuration($report.totalDuration.toMillis())</strong>
+        </p>
+    </div>
+    
+    <div class="container">
+        <div class="card full-width">
+            <h2>Conversion Summary</h2>
+            
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-value">$report.totalFilesProcessed</div>
+                    <div class="stat-label">Files Processed</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">$report.successfullyConvertedFiles</div>
+                    <div class="stat-label">Files Successfully Converted</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">$report.filesWithErrors</div>
+                    <div class="stat-label">Files With Errors</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">$formatter.formatPercentage($report.successRate, 1)</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">$report.totalTagsConverted</div>
+                    <div class="stat-label">Tags Converted</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">$report.totalScriptletsProcessed</div>
+                    <div class="stat-label">Scriptlets Processed</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">$report.totalIssuesFound</div>
+                    <div class="stat-label">Issues Found</div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="chart-card half-width">
+                    <h3>Conversion Success Rate</h3>
+                    <div class="chart-container">
+                        <canvas id="successRateChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card half-width">
+                    <h3>Issues by Severity</h3>
+                    <div class="chart-container">
+                        <canvas id="issuesBySeverityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card full-width">
+            <h2>Scriptlet Processing</h2>
+            
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-value">$report.scriptletSummary.totalProcessed</div>
+                    <div class="stat-label">Total Scriptlets</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">$report.scriptletSummary.successfullyHandled</div>
+                    <div class="stat-label">Successfully Handled</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">$report.scriptletSummary.failedToHandle</div>
+                    <div class="stat-label">Failed to Handle</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">$formatter.formatPercentage($report.scriptletSummary.successRate, 1)</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+            </div>
+            
+            <div class="chart-card">
+                <h3>Scriptlet Types</h3>
+                <div class="chart-container">
+                    <canvas id="scriptletTypesChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card full-width">
+            <h2>Tag Conversions</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Original Tag</th>
+                        <th>Target Tag</th>
+                        <th>Count</th>
+                        <th>Success Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                #foreach ($entry in $report.tagConversionSummaries.entrySet())
+                    #set ($summary = $entry.value)
+                    <tr>
+                        <td>$formatter.escapeHtml($summary.qualifiedTagName)</td>
+                        <td>$formatter.escapeHtml($summary.qualifiedTargetTagName)</td>
+                        <td>$summary.conversionCount</td>
+                        <td>$formatter.formatPercentage($summary.successRate, 1)</td>
+                    </tr>
+                #end
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card full-width">
+            <h2>Conversion Issues</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Severity</th>
+                        <th>Location</th>
+                        <th>Message</th>
+                        <th>Suggestion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                #foreach ($issue in $report.conversionIssues)
+                    <tr class="$formatter.getSeverityClass($issue.severity)">
+                        <td><strong>$issue.severity</strong></td>
+                        <td>$formatter.escapeHtml($issue.formattedLocation)</td>
+                        <td>$formatter.escapeHtml($issue.message)</td>
+                        <td>$formatter.escapeHtml($issue.suggestion)</td>
+                    </tr>
+                #end
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card full-width">
+            <h2>File Conversion Details</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source File</th>
+                        <th>Status</th>
+                        <th>Duration</th>
+                        <th>Tags</th>
+                        <th>Scriptlets</th>
+                        <th>Issues</th>
+                    </tr>
+                </thead>
+                <tbody>
+                #foreach ($fileSummary in $report.fileSummaries)
+                    <tr>
+                        <td>$formatter.escapeHtml($fileSummary.sourcePath.fileName.toString())</td>
+                        <td>
+                            #if($fileSummary.conversionSuccessful)
+                                <span style="color: green">Success</span>
+                            #else
+                                <span style="color: red">Failed</span>
+                            #end
+                        </td>
+                        <td>$formatter.formatDuration($fileSummary.conversionDuration.toMillis())</td>
+                        <td>$fileSummary.tagsConverted</td>
+                        <td>$fileSummary.scriptletsProcessed</td>
+                        <td>$fileSummary.issueCount</td>
+                    </tr>
+                #end
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        // Chart data from server
+        $chartData
+        
+        // Setup charts
+        window.addEventListener('load', function() {
+            // Success Rate Chart
+            const successRateCtx = document.getElementById('successRateChart').getContext('2d');
+            new Chart(successRateCtx, {
+                type: 'pie',
+                data: successRateData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+            
+            // Issues By Severity Chart
+            const issuesBySeverityCtx = document.getElementById('issuesBySeverityChart').getContext('2d');
+            new Chart(issuesBySeverityCtx, {
+                type: 'bar',
+                data: issuesBySeverityData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Scriptlet Types Chart
+            const scriptletTypesCtx = document.getElementById('scriptletTypesChart').getContext('2d');
+            new Chart(scriptletTypesCtx, {
+                type: 'doughnut',
+                data: scriptletTypesData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        });
+    </script>
+</body>
+</html>

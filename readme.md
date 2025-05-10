@@ -1,4 +1,3 @@
-
 #Jsp2Thymeleaf - an extensible JSP to Thmeleaf converter
 
 This project is intended to automate over 95% of jsp to thymeleaf conversion
@@ -16,6 +15,9 @@ It features:
  conjunction with the com.cybernostics:spring-thymeleaf-jsp library (which allows
  jsp pages to work alongside thymeleaf, even including thymeleaf fragments), you can
  run and test your project at any stage in the conversion.
+
+ iv) A comprehensive reporting system that generates detailed reports on the conversion process, 
+ including statistics, issues encountered, and recommendations for handling scriptlets.
 
 #Running it
 
@@ -42,8 +44,55 @@ It features:
                 <excludes>
                    <exclude>MyOtherPage.jsp</exclude>
                 </excludes>
+                <!-- Reporting Configuration -->
+                <generateReports>true</generateReports>
+                <reportTypes>
+                  <reportType>html</reportType>
+                  <reportType>json</reportType>
+                  <reportType>summary</reportType>
+                </reportTypes>
+                <reportsOutputDir>${project.build.directory}/jsp2thymeleaf-reports</reportsOutputDir>
+                <!-- Scriptlet Handling -->
+                <scriptletHandlingStrategy>HTML_COMMENT</scriptletHandlingStrategy>
             </configuration>
         </plugin>
+
+#Reporting and Scriptlet Handling
+
+The JSP2Thymeleaf toolkit now includes comprehensive reporting capabilities and improved scriptlet handling:
+
+## Reporting Features
+
+- Generate detailed HTML reports with visualizations and charts
+- Create JSON reports for integration with other tools
+- Produce text summaries for quick overview
+- Track conversion statistics and success rates
+- Identify common issues and problematic areas
+
+To enable reporting, use the `-r` or `--generate-reports` option from the command line:
+
+```
+java -jar jsp2thymeleaf.jar -s src/main/webapp -d target/templates -r -rt html,json,summary
+```
+
+For more details, see the [Reporting Documentation](jsp2thymeleaf-reporting/README.md).
+
+## Scriptlet Handling
+
+JSP scriptlets (code enclosed in `<% ... %>`) are handled using configurable strategies:
+
+- HTML comments (default)
+- Thymeleaf comments
+- Extraction to separate files
+- Fail-on-scriptlet approach
+
+Configure scriptlet handling with the `-st` or `--scriptlet-strategy` option:
+
+```
+java -jar jsp2thymeleaf.jar -s src/main/webapp -d target/templates -st THYMELEAF_COMMENT
+```
+
+For more details, see the [Scriptlet Handling Documentation](jsp2thymeleaf-reporting/SCRIPTLET_HANDLING.md).
 
 #JSP coverage
 
