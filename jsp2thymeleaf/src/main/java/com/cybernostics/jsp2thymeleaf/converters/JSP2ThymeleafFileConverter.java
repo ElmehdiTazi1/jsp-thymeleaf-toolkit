@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * JSP-Thymeleaf-Toolkit - Outils pour la conversion de JSP vers Thymeleaf
+ * Copyright (c) 2023 Cybernostics Pty Ltd
  */
 package com.cybernostics.jsp2thymeleaf.converters;
 
@@ -25,26 +24,72 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.jdom2.Document;
 
 /**
+ * Convertisseur de fichiers JSP vers Thymeleaf.
+ * 
+ * Cette classe est responsable de la conversion d'un fichier JSP individuel
+ * en fichier Thymeleaf. Elle gère:
+ * <ul>
+ *   <li>Le parsing du fichier JSP</li>
+ *   <li>La transformation vers la structure Thymeleaf</li>
+ *   <li>Le post-traitement du document généré</li>
+ *   <li>L'écriture du résultat dans un fichier de sortie</li>
+ * </ul>
+ * 
+ * Elle s'appuie sur le JSP parser généré par ANTLR et sur des transformateurs
+ * qui convertissent les éléments JSP en équivalents Thymeleaf.
  *
  * @author jason
+ * @version 1.0
+ * @see JSP2ThymeleafTransformerListener
+ * @see ScopedJSPConverters
  */
 public class JSP2ThymeleafFileConverter
 {
-
+    /** Logger pour cette classe */
     public static final Logger logger = Logger.getLogger(JSP2ThymeleafFileConverter.class.getName());
+    
+    /** Détermine si une bannière de conversion est ajoutée au fichier généré */
     private boolean showBanner = true;
 
+    /**
+     * Constructeur initialisant le convertisseur avec la configuration spécifiée.
+     * 
+     * Cette méthode va également scanner et charger tous les convertisseurs
+     * configurés dans le système (standard et personnalisés).
+     * 
+     * @param configuration La configuration à utiliser pour ce convertisseur
+     */
     public JSP2ThymeleafFileConverter(JSP2ThymeleafConfiguration configuration)
     {
         scanForConverters(configuration);
-
     }
 
+    /**
+     * Définit si une bannière de conversion doit être ajoutée aux fichiers générés.
+     * 
+     * @param showBanner true pour afficher la bannière, false sinon
+     */
     public void setShowBanner(boolean showBanner)
     {
         this.showBanner = showBanner;
     }
 
+    /**
+     * Convertit un fichier JSP en fichier Thymeleaf.
+     * 
+     * Cette méthode effectue le processus complet de conversion:
+     * <ol>
+     *   <li>Parsing du fichier JSP</li>
+     *   <li>Conversion des éléments JSP en éléments Thymeleaf</li>
+     *   <li>Post-traitement du document généré</li>
+     *   <li>Écriture du résultat dans le fichier de sortie</li>
+     * </ol>
+     * 
+     * @param file Le fichier JSP tokenisé à convertir
+     * @param toWrite Le fichier de sortie pour le résultat Thymeleaf
+     * @param converterScope Le contexte de conversion contenant les convertisseurs à utiliser
+     * @return Une liste d'exceptions rencontrées pendant la conversion
+     */
     public List<JSP2ThymeLeafException> convert(TokenisedFile file, File toWrite, ScopedJSPConverters converterScope)
     {
 

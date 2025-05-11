@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * JSP-Thymeleaf-Toolkit - Outils pour la conversion de JSP vers Thymeleaf
+ * Copyright (c) 2023 Cybernostics Pty Ltd
  */
 package com.cybernostics.jsp2thymeleaf;
 
@@ -33,27 +32,66 @@ import org.apache.commons.cli.Parser;
 import org.apache.commons.cli.PosixParser;
 
 /**
- * Contains parameters to control the conversion process.
+ * Contient les paramètres pour contrôler le processus de conversion JSP vers Thymeleaf.
+ * 
+ * Cette classe est responsable de:
+ * <ul>
+ *   <li>Parser les options de ligne de commande</li>
+ *   <li>Stocker la configuration du processus de conversion</li>
+ *   <li>Déterminer les fichiers à inclure/exclure selon des patterns</li>
+ *   <li>Gérer les chemins source, destination et racine du projet</li>
+ *   <li>Configurer les convertisseurs de taglibs personnalisés</li>
+ * </ul>
+ * 
+ * Les options de configuration principales sont:
+ * <ul>
+ *   <li>Dossiers source et destination</li>
+ *   <li>Patterns d'inclusion et d'exclusion de fichiers</li>
+ *   <li>Convertisseurs de taglibs personnalisés</li>
+ *   <li>Mappage d'URI pour les taglibs</li>
+ *   <li>Options d'affichage et de débogage</li>
+ * </ul>
  *
  * @author jason
+ * @version 1.0
+ * @see JSP2Thymeleaf
+ * @see JSP2ThymeleafFileConverter
  */
 public class JSP2ThymeleafConfiguration
 {
-
+    /** Flag pour activer/désactiver l'affichage de la bannière */
     private boolean showBanner;
 
+    /** Dossier contenant les fichiers JSP source */
     private Path srcFolder;
+    
+    /** Dossier où seront écrits les fichiers Thymeleaf convertis */
     private Path destFolder;
+    
+    /** Dossier racine du projet (utilisé pour les chemins relatifs) */
     private Path rootFolder;
 
+    /** Tableau vide constant utilisé pour initialiser les tableaux de patterns */
     private static final String[] EMPTY = new String[0];
+    
+    /** Patterns d'inclusion au format glob (ex: "**'/*.jsp") */
     private String[] includes = EMPTY;
+    
+    /** Patterns d'exclusion au format glob */
     private String[] excludes = EMPTY;
+    
+    /** Noms de fichiers spécifiques à traiter */
     private String[] filenames = EMPTY;
 
+    /** Ensemble de chemins de fichiers à traiter, après application des filtres */
     private Set<Path> filesToProcess;
 
-    private FileAttribute GROUP_WRITABLE = PosixFilePermissions.asFileAttribute(SetUtils.setOf(
+    /** 
+     * Attribut pour les permissions de fichiers en mode POSIX
+     * Utilisé pour créer des fichiers avec les permissions groupe en lecture/écriture
+     */
+    @SuppressWarnings("unused")
+    private final FileAttribute<?> GROUP_WRITABLE = PosixFilePermissions.asFileAttribute(SetUtils.setOf(
             PosixFilePermission.GROUP_READ,
             PosixFilePermission.GROUP_WRITE,
             PosixFilePermission.OWNER_READ,

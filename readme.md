@@ -1,49 +1,75 @@
 
-#Jsp2Thymeleaf - an extensible JSP to Thmeleaf converter
+# Jsp2Thymeleaf - An Extensible JSP to Thymeleaf Converter
 
-This project is intended to automate over 95% of jsp to thymeleaf conversion
+This project is intended to automate over 95% of JSP to Thymeleaf conversion.
+
+## Overview
 
 It features:
 
- i) A great JSP parser thanks to the excellent jsp2jspx project which I uncovered on
- an archeological SourceForge dig and resurrected from Subversion.
+1) A great JSP parser thanks to the excellent jsp2jspx project which I uncovered on
+an archeological SourceForge dig and resurrected from Subversion.
 
- ii) A converter framework allowing you to add converters for your own 
- tag libraries in java, groovy or python.
+2) A converter framework allowing you to add converters for your own 
+tag libraries in Java, Groovy or Python.
 
- iii) A configurable maven plugin to automate the conversion of pages either
- entirely or more sensibly, page by page or fragment by fragment. Used in
- conjunction with the com.cybernostics:spring-thymeleaf-jsp library (which allows
- jsp pages to work alongside thymeleaf, even including thymeleaf fragments), you can
- run and test your project at any stage in the conversion.
+3) A configurable Maven plugin to automate the conversion of pages either
+entirely or more sensibly, page by page or fragment by fragment. Used in
+conjunction with the com.cybernostics:spring-thymeleaf-jsp library (which allows
+JSP pages to work alongside Thymeleaf, even including Thymeleaf fragments), you can
+run and test your project at any stage in the conversion.
 
-#Running it
+## Development Roadmap
 
-  i) From the command line:
- java -jar Jsp2Thymeleaf [src_files|*.jsp] [destpath|.] --taglibs=[pathlist] --urimap=[path]
- 
- where:
-  destpath - is the path where the converted files will end up
-  taglibs - a list of taglib converters, either *.groovy, or *.py.
-  urimap - is a map of any custom uri's you use to select taglibs from your jsps   
+A detailed project roadmap is available in the [ROADMAP.md](ROADMAP.md) file, which outlines:
 
-  ii) From the maven plugin
-  Include the com.cybernostics:maven-jsp2thymeleaf plugin:
+- Phase 1: Analysis and Stabilization (2 weeks)
+- Phase 2: Refactoring and Enhancement (3 weeks)
+- Phase 3: Documentation (2 weeks) 
+- Phase 4: Integration and Deployment (1 week)
 
-        <plugin>
-            <artifactId>maven-jsp2thymeleaf</artifactId>
-            <groupId>com.cybernostics</groupId>
-            <configuration>
-                <src></src>
-                <dest>${build.output.path}</dest>
-                <includes>
-                   <include>MyPage.jsp</include>
-                </includes>
-                <excludes>
-                   <exclude>MyOtherPage.jsp</exclude>
-                </excludes>
-            </configuration>
-        </plugin>
+The roadmap includes specific objectives, deliverables, resources, validation criteria, and risk management for each phase.
+
+## Running It
+
+### From the Command Line
+
+```bash
+java -jar jsp2thymeleaf-1.0.0-SNAPSHOT.jar [src_files|*.jsp] [destpath|.] --taglibs=[pathlist] --urimap=[path]
+```
+
+Where:
+- `destpath` - The path where converted files will be saved
+- `taglibs` - A list of taglib converters (*.groovy or *.py)
+- `urimap` - A map of custom URIs used to select taglibs from your JSPs
+
+### Using the Maven Plugin
+
+Include the `jsp2tl-maven-plugin` in your project's `pom.xml`:
+
+```xml
+<plugin>
+    <groupId>com.cybernostics</groupId>
+    <artifactId>jsp2tl-maven-plugin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <configuration>
+        <src>${project.basedir}/src/main/webapp</src>
+        <dest>${project.build.directory}/converted</dest>
+        <includes>
+            <include>**/*.jsp</include>
+        </includes>
+        <excludes>
+            <exclude>**/excluded/*.jsp</exclude>
+        </excludes>
+    </configuration>
+</plugin>
+```
+
+Run the plugin with:
+
+```bash
+mvn jsp2tl:convert
+```
 
 #JSP coverage
 

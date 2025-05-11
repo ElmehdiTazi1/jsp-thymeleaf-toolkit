@@ -1,4 +1,27 @@
-lexer grammar  JSPLexer;
+/**
+ * Grammaire du lexer JSP pour ANTLR4
+ *
+ * Cette grammaire définit les règles de tokenization pour les fichiers JSP.
+ * Elle permet de reconnaître les éléments syntaxiques de base des fichiers JSP,
+ * y compris:
+ * - Commentaires JSP/HTML
+ * - Commentaires conditionnels
+ * - Déclarations XML
+ * - Sections CDATA
+ * - DTD
+ * - Balises JSP et HTML
+ * - Directives JSP
+ * - Expressions JSP (EL)
+ * - Scriptlets
+ * 
+ * La grammaire est structurée en modes pour gérer différents contextes d'analyse:
+ * - Mode par défaut: analyse du document JSP/HTML
+ * - IN_JSP_COMMENT: analyse du contenu d'un commentaire JSP
+ * - IN_CONDITIONAL_COMMENT: analyse du contenu d'un commentaire conditionnel
+ * - IN_DTD: analyse du contenu d'une déclaration DTD
+ * - TAG: analyse du contenu d'une balise HTML/JSP
+ */
+lexer grammar JSPLexer;
 
 JSP_COMMENT_START
     : JSP_COMMENT_START_TAG -> pushMode(IN_JSP_COMMENT)

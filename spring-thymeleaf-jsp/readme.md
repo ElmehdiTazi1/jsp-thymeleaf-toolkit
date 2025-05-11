@@ -1,18 +1,10 @@
+# spring-thymeleaf-jsp - helping JSP and Thymeleaf play together
 
-spring-thymeleaf-jsp
-====================
+The spring-thymeleaf-jsp library is intended to help anyone wanting
+to make the jump from JSP's to Thymeleaf templates for their view technology.
 
-Mixing JSP and Thymeleaf content in your spring MVC project.
-
-This project allows you to:
-  1. Have views rendered with either Thymeleaf templates and JSP pages
-  2. Have JSP pages insert Thymeleaf fragments
-  3. Include Thymeleaf fragments like headers footers in a JSP page
-
-The intention is to make it possible to migrate a project from JSP to Thymeleaf
-by first converting common page elements and then page by page. 
-
-Usage
-=====
-
-For spring MVC projects, import the JspThymeleafInteropAutoConfiguration class.
+It does this by:
+ * providing an easy configuration for spring applications to serve both
+   JSP and thymeleaf views without having to worry about namespacing them
+   or configuring view resolvers.
+ 

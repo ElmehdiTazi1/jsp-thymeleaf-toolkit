@@ -1,0 +1,4 @@
+com\cybernostics\jspparser\JSPLexerHappyCaseTest.class
+com\cybernostics\jspparser\JSPParserHappyCaseTest.class
+com\cybernostics\jspparser\JspDirectiveTest.class
+com\cybernostics\jspparser\JSPParserHappyCaseTest$ANTLRErrorListenerImpl.class

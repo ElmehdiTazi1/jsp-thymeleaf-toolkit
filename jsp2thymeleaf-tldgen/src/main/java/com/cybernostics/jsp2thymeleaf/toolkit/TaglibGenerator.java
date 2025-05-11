@@ -47,6 +47,12 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Component;
 
 /**
+ * TaglibGenerator est la classe principale qui gère la génération des convertisseurs
+ * pour les bibliothèques de balises JSP (TLD). Elle utilise le moteur de template
+ * Velocity pour générer le code source des convertisseurs.
+ * 
+ * Cette classe s'exécute comme un CommandLineRunner de Spring Boot et traite les
+ * arguments de ligne de commande pour configurer le processus de génération.
  *
  * @author jason
  */

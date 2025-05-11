@@ -1,5 +1,24 @@
 
 
+/**
+ * Grammaire du parser JSP pour ANTLR4
+ *
+ * Cette grammaire définit les règles syntaxiques pour analyser les fichiers JSP.
+ * Elle se base sur les tokens générés par JSPLexer et construit un arbre syntaxique
+ * représentant la structure du document JSP.
+ * 
+ * Les principales règles grammaticales incluent:
+ * - jspDocument: point d'entrée de l'analyse, représente le document JSP complet
+ * - jspElements: représente les éléments JSP (balises, directives, etc.)
+ * - jspElement: représente une balise JSP/HTML avec ses attributs et contenu
+ * - jspDirective: représente une directive JSP (<%@ ... %>)
+ * - htmlContent: représente le contenu HTML, y compris les expressions JSP
+ * - jspExpression: représente une expression JSP (${...})
+ * - htmlAttribute: représente un attribut HTML avec son nom et sa valeur
+ * 
+ * Cette grammaire permet de construire une représentation structurée d'un document JSP
+ * qui peut être ensuite utilisée pour la conversion vers Thymeleaf ou d'autres formats.
+ */
 parser grammar JSPParser;
 
 options { tokenVocab=JSPLexer; }

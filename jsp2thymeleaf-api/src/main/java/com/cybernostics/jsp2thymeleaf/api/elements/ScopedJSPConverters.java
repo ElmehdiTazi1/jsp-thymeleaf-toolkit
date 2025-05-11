@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * JSP-Thymeleaf-Toolkit - Outils pour la conversion de JSP vers Thymeleaf
+ * Copyright (c) 2023 Cybernostics Pty Ltd
  */
 package com.cybernostics.jsp2thymeleaf.api.elements;
 
@@ -12,40 +11,78 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * ScopedJSPConverters keeps track of taglib converters which have been declared
- * with jsp taglib directives, and the prefixes with which they are associated.
- *
- * As the taglib is encountered, this is used to register the service.
- *
- * The forUri method is then used when tags with a given (or no) prefix are
- * encountered.
+ * Gère le contexte de conversion des éléments JSP avec les taglibs associées.
+ * 
+ * Cette classe joue un rôle central dans le processus de conversion en gardant trace
+ * des convertisseurs de taglib qui ont été déclarés via les directives JSP taglib,
+ * ainsi que des préfixes avec lesquels ils sont associés.
+ * 
+ * ScopedJSPConverters implémente un mécanisme de portée (scope) permettant de gérer
+ * les contextes imbriqués. Lorsqu'un nouveau contexte est créé (par exemple lors de
+ * l'entrée dans un élément imbriqué), il peut hériter des convertisseurs du contexte
+ * parent tout en définissant de nouveaux convertisseurs locaux.
+ * 
+ * Fonctionnalités principales:
+ * - Enregistrement des convertisseurs de taglib pour des préfixes spécifiques
+ * - Recherche de convertisseurs pour des balises préfixées
+ * - Gestion des espaces de noms actifs dans le contexte courant
+ * - Support de l'héritage des contextes (pour gérer les portées imbriquées)
+ * - Gestion des convertisseurs de nœuds et de fonctions
  *
  * @author wjase
+ * @version 1.0
+ * @see JSPNodeConverterSource
+ * @see JSPElementNodeConverter
+ * @see TagConverter
  */
 public class ScopedJSPConverters
 {
-
+    /** Le contexte parent, si présent, utilisé pour la recherche de convertisseurs en cascade */
     private Optional<ScopedJSPConverters> parentScope = Optional.empty();
+    
+    /** Source de convertisseurs par défaut utilisée pour les éléments sans préfixe */
     private static JSPNodeConverterSource DEFAULT_CONVERTER_SOURCE = new DefaultElementConverterSource();
 
+    /** 
+     * Map des convertisseurs actifs indexés par préfixe de taglib 
+     * Par exemple, "c" -> convertisseur pour JSTL Core
+     */
+    private Map<String, JSPNodeConverterSource> activeTagConverters = new HashMap<>();
+
+    /**
+     * Constructeur par défaut.
+     * 
+     * Initialise un nouveau contexte de conversion sans parent et
+     * ajoute le convertisseur par défaut pour les tags sans préfixe.
+     */
     public ScopedJSPConverters()
     {
         addTaglibConverter("", new DefaultElementConverterSource());
     }
 
+    /**
+     * Constructeur avec contexte parent.
+     * 
+     * Initialise un nouveau contexte de conversion qui hérite
+     * du contexte parent spécifié tout en permettant d'ajouter
+     * des convertisseurs spécifiques à ce contexte.
+     * 
+     * @param parentScope Le contexte parent dont ce contexte hérite
+     */
     public ScopedJSPConverters(ScopedJSPConverters parentScope)
     {
         this();
         this.parentScope = Optional.ofNullable(parentScope);
     }
 
-    private Map<String, JSPNodeConverterSource> activeTagConverters = new HashMap<>();
-
     /**
-     * Registers a given converter for handling tags with the prefix specified
+     * Enregistre un convertisseur pour gérer les balises avec le préfixe spécifié.
+     * 
+     * Cette méthode est utilisée lorsqu'une directive taglib est rencontrée dans
+     * le document JSP, pour associer un préfixe à un ensemble de convertisseurs.
      *
-     * @param prefix
-     * @param converterSource
+     * @param prefix Le préfixe de taglib (comme "c" pour JSTL Core)
+     * @param converterSource La source de convertisseurs pour ce préfixe
      */
     public void addTaglibConverter(String prefix, JSPNodeConverterSource converterSource)
     {
