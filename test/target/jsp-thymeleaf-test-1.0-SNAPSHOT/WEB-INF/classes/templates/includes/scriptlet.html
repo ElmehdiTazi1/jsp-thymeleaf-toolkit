@@ -1,0 +1,69 @@
+<!DOCTYPE html SYSTEM "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" th:fragment="content">
+  <head>
+    <meta charset="UTF-8">
+      <title />
+      JSP Scriptlet Example
+    </meta>
+  </head>
+  <body />
+  <h1 />
+  JSP Scriptlet Examples
+  <!-- ATTENTION: Éléments multiples détectés et fusionnés. Structure originale potentiellement modifiée. -->
+  <html>
+    <head>
+      <title>Thymeleaf Fragment Definition</title>
+    </head>
+    <body>
+      <span th:fragment="content" />
+    </body>
+  </html>
+  <h2>Current Server Information:</h2>
+  serverInfo = new ArrayList
+  <!-- ATTENTION: Éléments multiples détectés et fusionnés. Structure originale potentiellement modifiée. -->
+  <html>
+    <head>
+      <title>Thymeleaf Fragment Definition</title>
+    </head>
+    <body>
+      <span th:fragment="content">();&#xD;
+        serverInfo.add("Server Name: " + request.getServerName());&#xD;
+        serverInfo.add("Server Port: " + request.getServerPort());&#xD;
+        serverInfo.add("Server Protocol: " + request.getProtocol());&#xD;
+        &#xD;
+        // Conditional logic&#xD;
+        boolean isSecure = request.isSecure();&#xD;
+        if (isSecure) {&#xD;
+            serverInfo.add("Connection: Secure (HTTPS)");&#xD;
+        } else {&#xD;
+            serverInfo.add("Connection: Standard (HTTP)");&#xD;
+        }&#xD;
+        &#xD;
+        // Loop through the list&#xD;
+        for (String info : serverInfo) {&#xD;
+    %&gt;</span>
+    </body>
+  </html>
+  <p />
+  <h2>Dynamic Content:</h2>
+  <p />
+  Current date and time:
+  <p />
+  Page Access Count:
+  <p />
+  Your IP Address:
+  <p />
+  JSP File Location:
+  <h2>Browser Detection:</h2>
+  <p />
+  Your browser appears to be:
+  <p />
+  Full User-Agent:
+  <h2>Query String Parameters:</h2>
+  <p>The following parameters were provided:</p>
+  <ul />
+  <li />
+  <strong />
+  :
+  <p>No query string parameters were provided.</p>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html SYSTEM "http://thymeleaf.org/dtd/xhtml-strict-thymeleaf.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="UNKNOWN_PREFIX_c" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Thymeleaf Fragment Definition</title>
+  </head>
+  <body>
+    <div th:fragment="content" th:replace="/WEB-INF/views/include/entete::content" />
+  </body>
+  <html>
+    <head>
+      <title>Accueil TWS2</title>
+      <div th:replace="/WEB-INF/views/include/styles::content" />
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        &lt;!--  Fichiers CSS  --&gt;
+        <!-- Fichiers CSS -->
+        <link href="" rel="stylesheet">
+          <c:url value="/resources/css/accueil.css" />
+          <link href="" rel="stylesheet">
+            <c:url value="/resources/css/overlay.css" />
+            <link href="" rel="stylesheet">
+              <c:url value="/resources/css/fuzzySearch.css" />
+              <link href="" rel="stylesheet">
+                <c:url value="/resources/css/entete.css" />
+              </link>
+              <body>
+                &lt;!--  Inclusion Entete avec logo  --&gt;
+                <!-- Inclusion Entete avec logo -->
+                <div th:replace="include/enteteTemplate::content" />
+                &lt;!--  FIN inclusion Entete avec logo  --&gt;
+                <!-- FIN inclusion Entete avec logo -->
+                <div id="block_recherche" class="container-fluid">
+                  <form class="form-horizontal">
+                    &lt;!--  DEBUT Block Liste tous les scenarios  --&gt;
+                    <!-- DEBUT Block Liste tous les scenarios -->
+                    <div class="row">
+                      <div class="col-md-12 col-md-offset-3">
+                        <div id="all_scenario" class="panel panel-default">
+                          <div id="panel-heading" class="panel-heading col-md-12">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <h3 id="btn_trie_par_libelle" class="panel-title btn_trie">
+                                  Par libelle
+                                  <em id="tri_par_libelle" class="material-icons">keyboard_arrow_up</em>
+                                </h3>
+                              </div>
+                              <div class="col-md-3 col-md-offset-1">
+                                <h3 id="btn_trie_par_nombre_cas" class="panel-title btn_trie">Par nombre de cas</h3>
+                              </div>
+                              <div class="col-md-4">
+                                <h3 id="btn_trie_par_date" class="panel-title btn_trie">Par date de dernière modification</h3>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="input-group col-md-12">
+                            <select id="list_all_scenario" class="form-control" size="15" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    &lt;!--  Fin Block Liste tous les scenarios  --&gt;
+                    <!-- Fin Block Liste tous les scenarios -->
+                    &lt;!--  DEBUT Block recherche par scenario + boutons  --&gt;
+                    <!-- DEBUT Block recherche par scenario + boutons -->
+                    <div id="block_form_recherche" class="row">
+                      <div class="col-md-5 col-md-offset-1">
+                        <div class="form-group">
+                          <label id="label_scenario" for="input_scenario" class="col-md-3 control-label">Scénario</label>
+                          &lt;!--  Block recherche par scenario + boutons  --&gt;
+                          <!-- Block recherche par scenario + boutons -->
+                          <div id="btn_ligne_recherche" class="input-group col-md-8">
+                            <input class="form-control typeahead" id="input_scenario" placeholder="Entrez le libellé du scénario que vous recherchez" type="search" autofocus="autofocus" autocomplete="off" />
+                          </div>
+                          &lt;!--  FIN Block recherche par scenario + boutons  --&gt;
+                          <!-- FIN Block recherche par scenario + boutons -->
+                          &lt;!--  Block recherche avancee  --&gt;
+                          <!-- Block recherche avancee -->
+                          <div id="block_recherche_avancee" class="row">
+                            <div id="recherche_avancee">
+                              <label for="input_collectivite" class="col-md-3 control-label">Collectivité</label>
+                              <div class="input-group col-md-8">
+                                <input class="form-control typeahead" id="input_collectivite" placeholder="Entrez le numero du code collectivité" type="search" />
+                                <label class="col-md-3 control-label" for="web_services">Web Service</label>
+                                <div class="input-group col-md-8">
+                                  <div id="ws_nom" class="radio row radio-primary" />
+                                  <hr>
+                                    <div id="ws_version" class="radio radio-primary" />
+                                  </hr>
+                                </div>
+                              </div>
+                              &lt;!--  FIN Block recherche avancee  --&gt;
+                              <!-- FIN Block recherche avancee -->
+                            </div>
+                            <div id="btn_scenario" class="col-md-6">
+                              <div>
+                                <ul class="pager nav nav-pills">
+                                  <li>
+                                    <div id="div_recherche_avancee" class="togglebutton col-md-12">
+                                      <label>
+                                        <input id="btn_recherche_avancee" type="checkbox">Recherche Avancée</input>
+                                      </label>
+                                    </div>
+                                    <li>
+                                      <div id="toggle_scenario" class="togglebutton col-md-12">
+                                        <label>
+                                          <input id="btn_all_scenario" type="checkbox">Afficher tous les scénarios</input>
+                                        </label>
+                                      </div>
+                                      <li>
+                                        <a id="btn_page_accueil" class="withripple col-md-12" href="/tws/creerScenario">
+                                          Créer scénario
+                                          <em class="material-icons">create</em>
+                                        </a>
+                                      </li>
+                                    </li>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="row">
+                                <div id="ligne_btn_recherche_avancee" class="col-md-offset-4">
+                                  <button id="btn_rechercher" class="btn btn-primary col-md-3 " type="button">Rechercher</button>
+                                  <button id="btn_reset" class="btn btn-primary col-md-3 " type="button">Réinitialiser</button>
+                                </div>
+                              </div>
+                              &lt;!--  Block liste des resultats  --&gt;
+                              <!-- Block liste des resultats -->
+                              <div class="row" id="resultat_recherche">
+                                <label class="col-md-3 control-label" for="resultat_recherche">Résultats</label>
+                                <div class="input-group col-md-6">
+                                  <select id="myselect" class="form-control" size="15" />
+                                </div>
+                              </div>
+                              &lt;!--  FIN Block liste des resultats  --&gt;
+                              <!-- FIN Block liste des resultats -->
+                              &lt;!--  Block boutons actions  --&gt;
+                              <!-- Block boutons actions -->
+                              <div class="row">
+                                <div id="boutons_action" class="col-md-8 col-md-offset-3">
+                                  <ul class="nav nav-pills">
+                                    <li>
+                                      <button id="btn_modifier_scenario" class="btn btn-primary" type="button">
+                                        Modifier
+                                        <em class="material-icons">create</em>
+                                      </button>
+                                    </li>
+                                    <li>
+                                      <button id="btn_supprimer_scenario" class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalSupprimerScenario">
+                                        Supprimer
+                                        <em class="material-icons">delete</em>
+                                      </button>
+                                    </li>
+                                    <li>
+                                      <button id="btn_dupliquer_scenario" class="btn btn-primary" type="button">
+                                        Dupliquer
+                                        <em class="material-icons">content_copy</em>
+                                      </button>
+                                    </li>
+                                    <li>
+                                      <button id="btn_visualiser_scenario" class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalChoixVisualisation">
+                                        Visualiser
+                                        <em class="material-icons">visibility</em>
+                                      </button>
+                                    </li>
+                                    <li>
+                                      <button id="btn_executer_scenario" class="btn btn-primary" type="button">
+                                        Exécuter
+                                        <em class="material-icons">play_arrow</em>
+                                      </button>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                              &lt;!--  FIN Block boutons actions  --&gt;
+                              <!-- FIN Block boutons actions -->
+                            </div>
+                          </div>
+                          &lt;!--  Inclusion fenetre modal  --&gt;
+                          <!-- Inclusion fenetre modal -->
+                          <div th:replace="include/fenetreModalChoixDeVisualisation::content" />
+                          &lt;!--  FIN inclusion fenetre modal  --&gt;
+                          <!-- FIN inclusion fenetre modal -->
+                          &lt;!--  Inclusion fenetre modal  --&gt;
+                          <!-- Inclusion fenetre modal -->
+                          <div th:replace="include/fenetreModalSupprimerScenario::content" />
+                          &lt;!--  FIN inclusion fenetre modal  --&gt;
+                          <!-- FIN inclusion fenetre modal -->
+                          &lt;!--  Scripts Jquery / bootstrap / material-design  --&gt;
+                          <!-- Scripts Jquery / bootstrap / material-design -->
+                          <div th:replace="/WEB-INF/views/include/scripts::content" />
+                          &lt;!--  Underscore  --&gt;
+                          <!-- Underscore -->
+                          <script src=""><c:url value="/resources/js/lib/underscore.js" />
+                          </script>
+                          &lt;!--  Mustache  --&gt;
+                          <!-- Mustache -->
+                          <script type="text/javascript" src=""><c:url value="/resources/js/lib/mustache.min.js" />
+                          </script>
+                        </div>
+                        &lt;!--  Fichiers JS  --&gt;
+                        <!-- Fichiers JS -->
+                        &lt;!--  Ce fichier doit etre place avant tous les autres fichiers JS utilisant les variables de la forme URL_XXX  --&gt;
+                        <!-- Ce fichier doit etre place avant tous les autres fichiers JS utilisant les variables de la forme URL_XXX -->
+                        <script type="text/javascript" src=""><c:url value="/resources/js/util/urlController.js" />
+                        </script>
+                      </div>
+                      <script type="text/javascript" src=""><c:url value="/resources/js/util/ajaxoutil.js" />
+                      </script>
+                    </div>
+                    <script type="text/javascript" src=""><c:url value="/resources/js/util/messageUtil.js" />
+                    </script>
+                  </form>
+                  &lt;!--  Fuzzy Search  --&gt;
+                  <!-- Fuzzy Search -->
+                  <script src=""><c:url value="/resources/js/lib/typeahead.bundle.js" />
+                  </script>
+                </div>
+                <script src=""><c:url value="/resources/js/lib/fuzzyset.js" />
+                </script>
+              </body>
+              <script src=""><c:url value="/resources/js/lib/subsequence-search.js" />
+              </script>
+            </link>
+            <script src=""><c:url value="/resources/js/fuzzysearch.js" />
+            </script>
+          </link>
+          <script src=""><c:url value="/resources/js/fuzzyCodeCollectivite.js" />
+          </script>
+        </link>
+        <script type="text/javascript" src=""><c:url value="/resources/js/accueil.js" />
+        </script>
+      </link>
+    </head>
+  </html>
+</html>

@@ -22,11 +22,14 @@ public class JSPNodeException extends JSP2ThymeLeafException implements MutableF
     public TokenisedFile getFile()
     {
         return file;
-    }
-
-    public ParserRuleContext getJspNode()
+    }    public ParserRuleContext getJspNode()
     {
         return jspNode;
+    }
+    
+    public void setJspNode(ParserRuleContext jspNode)
+    {
+        this.jspNode = jspNode;
     }
 
     public JSPNodeException(String message, Throwable cause, ParserRuleContext jspNode)

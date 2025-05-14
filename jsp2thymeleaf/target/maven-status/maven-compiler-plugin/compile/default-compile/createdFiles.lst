@@ -28,6 +28,7 @@ com\cybernostics\jsp2thymeleaf\util\Globber.class
 com\cybernostics\jsp2thymeleaf\util\ThymeleafUrl.class
 com\cybernostics\jsp2thymeleaf\converters\JSP2ThymeleafFileConverter.class
 com\cybernostics\jsp2thymeleaf\util\JSPIncludeSorter$JSPFileComparator.class
+com\cybernostics\jsp2thymeleaf\parser\JSP2ThymeleafTransformerListener$1.class
 com\cybernostics\jsp2thymeleaf\api\util\MapUtils.class
 com\cybernostics\jsp2thymeleaf\parser\JSP2IncludeImportCollector.class
 com\cybernostics\jsp2thymeleaf\converters\AllJstlConverters.class

@@ -7,6 +7,8 @@ package com.cybernostics.jsp2thymeleaf.converters.jsp;
 
 import com.cybernostics.jsp.parser.JSPParser;
 import com.cybernostics.jsp2thymeleaf.api.elements.JSPDirectiveConverter;
+import com.cybernostics.jsp2thymeleaf.api.elements.JSPElementNodeConverter;
+import com.cybernostics.jsp2thymeleaf.api.elements.JSPNodeConverterSource;
 import com.cybernostics.jsp2thymeleaf.api.exception.JSPNodeException;
 import java.util.Optional;
 
@@ -14,7 +16,7 @@ import java.util.Optional;
  *
  * @author jason
  */
-public class JSPDirectiveConverterSource
+public class JSPDirectiveConverterSource implements JSPNodeConverterSource
 {
 
     private final TaglibDirectiveConverter taglibDirectiveConverter = new TaglibDirectiveConverter();
@@ -22,9 +24,7 @@ public class JSPDirectiveConverterSource
 
     public JSPDirectiveConverterSource()
     {
-    }
-
-    public Optional<JSPDirectiveConverter> converterFor(JSPParser.JspDirectiveContext node)
+    }    public Optional<JSPDirectiveConverter> converterFor(JSPParser.JspDirectiveContext node)
     {
         switch (node.name.getText())
         {
@@ -37,6 +37,14 @@ public class JSPDirectiveConverterSource
 
         throw new JSPNodeException("No Converter Source for taglib directive:", node);
 
+    }
+
+    @Override
+    public Optional<JSPElementNodeConverter> converterFor(JSPParser.JspElementContext JSPNode)
+    {
+        // This method is required by JSPNodeConverterSource interface
+        // Directive converter source doesn't handle element contexts, return empty
+        return Optional.empty();
     }
 
 }

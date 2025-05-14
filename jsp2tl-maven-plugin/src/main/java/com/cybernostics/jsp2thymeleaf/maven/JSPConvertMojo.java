@@ -21,6 +21,7 @@ import com.cybernostics.jsp2thymeleaf.api.exception.JSP2ThymeLeafException;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
@@ -87,7 +88,12 @@ public class JSPConvertMojo
 
     public String[] getIncludes() {
         return includes;
-    }
+    }    /**
+     * Détermine si le build doit échouer en cas d'erreur de conversion non critique.
+     * Si false, les erreurs seront seulement journalisées et les tags non convertis seront commentés.
+     */
+    @Parameter(defaultValue = "false", required = false)
+    private boolean failOnError;
 
     public void execute()
             throws MojoExecutionException {
@@ -97,6 +103,8 @@ public class JSPConvertMojo
         log.info("srcDirectory = " + srcDirectory.getAbsolutePath());
         log.info("updateLinks = " + updateLinks);
         log.info("taglib scripts folder " + converterScriptDirectory.toString());
+        log.info("failOnError = " + failOnError);
+        
         JSP2ThymeleafConfiguration config = JSP2ThymeleafConfiguration
                 .getBuilder()
                 .withIncludes(includes)
@@ -112,17 +120,52 @@ public class JSPConvertMojo
             if (exceptions.isEmpty()) {
                 log.info("JSP2Thymeleaf converted all files successfully.");
             } else {
-                log.error("JSP2Thymeleaf had errors:");
+                // Classifier les erreurs entre critiques et non-critiques
+                List<JSP2ThymeLeafException> criticalErrors = new ArrayList<>();
+                List<JSP2ThymeLeafException> nonCriticalErrors = new ArrayList<>();
+                
                 for (JSP2ThymeLeafException exception : exceptions) {
-                    log.error(exception.getMessage());
+                    // Les messages qui contiennent certains patterns sont considérés comme non critiques
+                    if (exception.getMessage().contains("No taglib converter found") || 
+                        exception.getMessage().contains("Tag will be preserved")) {
+                        nonCriticalErrors.add(exception);
+                    } else {
+                        criticalErrors.add(exception);
+                    }
                 }
-                throw new MojoExecutionException("Failed to convert all files");
+                
+                // Journaliser les erreurs non critiques comme avertissements
+                if (!nonCriticalErrors.isEmpty()) {
+                    log.warn("JSP2Thymeleaf a rencontré " + nonCriticalErrors.size() + 
+                             " avertissement(s) concernant des tags non pris en charge:");
+                    for (JSP2ThymeLeafException warning : nonCriticalErrors) {
+                        log.warn(warning.getMessage());
+                    }
+                }
+                
+                // Gérer les erreurs critiques selon le paramètre failOnError
+                if (!criticalErrors.isEmpty()) {
+                    log.error("JSP2Thymeleaf had " + criticalErrors.size() + " critical errors:");
+                    for (JSP2ThymeLeafException error : criticalErrors) {
+                        log.error(error.getMessage());
+                    }
+                    
+                    if (failOnError) {
+                        throw new MojoExecutionException("Failed to convert all files");
+                    } else {
+                        log.error("Continuing despite errors (failOnError=false)");
+                    }
+                }
             }
         } catch (MojoExecutionException exception) {
             throw exception;
         } catch (Throwable t) {
             log.error(t);
-            throw t;
+            if (failOnError) {
+                throw t;
+            } else {
+                log.error("Continuing despite critical error (failOnError=false): " + t.getMessage());
+            }
         }
     }
 

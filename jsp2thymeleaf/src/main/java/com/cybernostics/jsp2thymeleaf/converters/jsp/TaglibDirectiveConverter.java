@@ -16,6 +16,8 @@ import static com.cybernostics.jsp2thymeleaf.api.util.StringFunctions.trimQuotes
 import static java.util.Collections.EMPTY_LIST;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jdom2.Content;
 
 /**
@@ -33,21 +35,23 @@ public class TaglibDirectiveConverter implements JSPDirectiveConverter
                 .orElseThrow(MapUtils.rex("Missing jsp taglib directive attribute: prefix", node)).toString();
         String uri = getAttribute(node, "uri")
                 .map(att -> trimQuotes(att.value.getText()))
-                .orElseThrow(MapUtils.rex("Missing jsp taglib directive: uri", node)).toString();
-
-        final Optional<TagConverterSource> taglibConverter = AvailableConverters.elementConverterforUri(uri);
+                .orElseThrow(MapUtils.rex("Missing jsp taglib directive: uri", node)).toString();        final Optional<TagConverterSource> taglibConverter = AvailableConverters.elementConverterforUri(uri);
         if (taglibConverter.isPresent())
         {
             context.getScopedConverters().addTaglibConverter(prefix, taglibConverter.get());
         } else
         {
             final Optional<FunctionConverterSource> functionConverter = AvailableConverters.functionConverterforUri(uri);
-            context.getScopedConverters().addTaglibFunctionConverter(prefix,
-                    functionConverter
-                            .orElseThrow(MapUtils.rex("No converters for uri:\""
-                                    + uri
-                                    + "\". Add converter jars or scripts to classpath.", node)));
-
+            if (functionConverter.isPresent()) {
+                context.getScopedConverters().addTaglibFunctionConverter(prefix, functionConverter.get());
+            } else {
+                // Au lieu de faire échouer la conversion, journaliser un avertissement
+                Logger.getLogger(TaglibDirectiveConverter.class.getName())
+                      .log(Level.WARNING, "Pas de convertisseur trouvé pour l'URI: {0}. Les tags de cette bibliothèque seront préservés avec des commentaires.", uri);
+                
+                // Enregistrer l'URI et son préfixe pour référence ultérieure
+                context.getScopedConverters().getUnsupportedTaglibs().put(prefix, uri);
+            }
         }
 
         return EMPTY_LIST;

@@ -28,6 +28,7 @@ import java.util.Optional;
  * - Gestion des espaces de noms actifs dans le contexte courant
  * - Support de l'héritage des contextes (pour gérer les portées imbriquées)
  * - Gestion des convertisseurs de nœuds et de fonctions
+ * - Suivi des taglibs non supportées pour préserver leur contenu
  *
  * @author wjase
  * @version 1.0
@@ -48,6 +49,13 @@ public class ScopedJSPConverters
      * Par exemple, "c" -> convertisseur pour JSTL Core
      */
     private Map<String, JSPNodeConverterSource> activeTagConverters = new HashMap<>();
+    
+    /**
+     * Map des taglibs non supportées avec leur URI.
+     * Clé: préfixe de la taglib (ex: "spring")
+     * Valeur: URI de la taglib (ex: "http://www.springframework.org/tags")
+     */
+    private Map<String, String> unsupportedTaglibs = new HashMap<>();
 
     /**
      * Constructeur par défaut.
@@ -106,6 +114,48 @@ public class ScopedJSPConverters
     }
 
     private Map<String, FunctionConverterSource> activeExpressionConverters = new HashMap<>();
+
+    /**
+     * Vérifie si un préfixe correspond à une taglib non supportée.
+     * 
+     * @param prefix Le préfixe à vérifier
+     * @return true si le préfixe correspond à une taglib non supportée, false sinon
+     */
+    public boolean isUnsupportedTaglib(String prefix) {
+        if (unsupportedTaglibs.containsKey(prefix)) {
+            return true;
+        }
+        if (parentScope.isPresent()) {
+            return parentScope.get().isUnsupportedTaglib(prefix);
+        }
+        return false;
+    }
+    
+    /**
+     * Récupère l'URI associé à un préfixe de taglib non supportée.
+     * 
+     * @param prefix Le préfixe de la taglib
+     * @return L'URI associé au préfixe, ou null si le préfixe n'est pas une taglib non supportée
+     */
+    public String getUnsupportedTaglibUri(String prefix) {
+        String uri = unsupportedTaglibs.get(prefix);
+        if (uri != null) {
+            return uri;
+        }
+        if (parentScope.isPresent()) {
+            return parentScope.get().getUnsupportedTaglibUri(prefix);
+        }
+        return null;
+    }
+    
+    /**
+     * Retourne le Map des taglibs non supportées.
+     * 
+     * @return Le Map des taglibs non supportées
+     */
+    public Map<String, String> getUnsupportedTaglibs() {
+        return unsupportedTaglibs;
+    }
 
     /**
      * Registers a given converter for handling tags with the prefix specified

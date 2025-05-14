@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.cybernostics</groupId>
+  <artifactId>jsp-thymeleaf-test</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>jsp-thymeleaf-toolkit</name>
+
+<build>    <plugins>        <plugin>
+            <groupId>com.cybernostics</groupId>
+            <artifactId>jsp2tl-maven-plugin</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <executions>
+                <!-- Utilisation du goal standard 'convert' pendant que nous corrigeons le problème -->
+                <execution>
+                    <id>convert-regular</id>
+                    <goals>
+                        <goal>convert</goal>
+                    </goals>                    <configuration>
+                        <srcDirectory>${project.basedir}/src/main/webapp/WEB-INF/jsp</srcDirectory>
+                        <outputDirectory>${project.build.directory}/classes/templates</outputDirectory>
+                        <updateLinks>true</updateLinks>
+                        <failOnError>false</failOnError>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+
+
+
+</project>
